@@ -4,3 +4,36 @@ This project focuses on protein structure prediction using the threading (fold r
 
 ---
 
+## Installation
+
+### Clone the repository
+
+```bash
+git clone git@github.com:zhukovanadezhda/protein-threading.git
+cd protein-threading
+```
+### Setup the conda environment
+
+Install [miniconda](https://docs.conda.io/en/latest/miniconda.html). Create the `protein-threading` conda environment:
+
+```bash
+conda env create -f environment.yml
+```
+
+### Load the environment
+
+```bash
+conda activate protein-threading
+```
+
+Remark: to deactivate an active environment, use:
+
+```bash
+conda deactivate
+```
+
+## Usage
+
+## Contact
+
+For questions or issues, please open an issue on GitHub or contact [nadiajuckova@gmail.com](mailto:nadiajuckova@gmail.com).
