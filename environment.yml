@@ -7,4 +7,4 @@ dependencies:
   - numpy
   - pandas
   - biopython
-  - tqdm
+  - joblib
