@@ -117,11 +117,40 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
 
 #### Result
 
-> `results/example1_result.csv`:
-> |              | 1crn.pdb                        | 1l2y.pdb                        | 1le0.pdb                        | 1le1.pdb                        | 1vii.pdb                        | 5awl.pdb                        |
-> |:--------------:|:----------------------------------:|:----------------------------------:|:----------------------------------:|:----------------------------------:|:----------------------------------:|:----------------------------------:|
-> | 1L2Y.fasta    | -1315.65                          | -469.83                         | -394.24                          | -419.29                           | -1051.97                          | -525.06                          |
-> | ![1l2y](doc/assets/1l2y.png) | ![1crn](doc/assets/1crn.png)   | ![1l2y](doc/assets/1l2y.png)    | ![1le0](doc/assets/1le0.png)    | ![1le1](doc/assets/1le1.png)    | ![1vii](doc/assets/1vii.png)    | ![5awl](doc/assets/5awl.png)    |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center;"> </th>
+      <th style="text-align:center; width: 300px;">1crn.pdb</th>
+      <th style="text-align:center; width: 300px;">1l2y.pdb</th>
+      <th style="text-align:center; width: 300px;">1le0.pdb</th>
+      <th style="text-align:center; width: 300px;">1le1.pdb</th>
+      <th style="text-align:center; width: 300px;">1vii.pdb</th>
+      <th style="text-align:center; width: 300px;">5awl.pdb</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center;">1L2Y.fasta</td>
+      <td style="text-align:center;">-1315.65</td>
+      <td style="text-align:center;">-469.83</td>
+      <td style="text-align:center;">-394.24</td>
+      <td style="text-align:center;">-419.29</td>
+      <td style="text-align:center;">-1051.97</td>
+      <td style="text-align:center;">-525.06</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;"><img src="doc/assets/1l2y.png" alt="1l2y" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/1crn.png" alt="1crn" width="300"></td>
+      <td style="text-align:center;"><img src="doc/assets/1l2y.png" alt="1l2y" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/1le0.png" alt="1le0" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/1le1.png" alt="1le1" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/1vii.png" alt="1vii" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/5awl.png" alt="5awl" width="100"></td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 
