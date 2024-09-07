@@ -91,38 +91,39 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
 #### Output
 
 ```python
-2024-09-06 13:04:26,772 - INFO - Loading DOPE score data...
-2024-09-06 13:04:27,405 - INFO - Processing sequences and templates...
-2024-09-06 13:04:27,405 - INFO - Processing sequence 5AWL.fasta, length: 10
-2024-09-06 13:04:28,098 - INFO - Processing template 1crn.pdb with 46 residues.
-2024-09-06 13:04:28,098 - INFO - Estimated time: 4-42 sec (0-1 min)
-2024-09-06 13:04:28,109 - INFO - Processing template 1l2y.pdb with 20 residues.
-2024-09-06 13:04:28,110 - INFO - Estimated time: 1-8 sec (0-0 min)
-2024-09-06 13:04:28,113 - INFO - Processing template 5awl.pdb with 10 residues.
-2024-09-06 13:04:28,113 - INFO - Estimated time: 0-2 sec (0-0 min)
-2024-09-06 13:04:28,114 - INFO - Processing template 1le1.pdb with 12 residues.
-2024-09-06 13:04:28,115 - INFO - Estimated time: 0-3 sec (0-0 min)
-2024-09-06 13:04:28,144 - INFO - Processing template 1vii.pdb with 36 residues.
-2024-09-06 13:04:28,144 - INFO - Estimated time: 2-26 sec (0-0 min)
-2024-09-06 13:04:28,195 - INFO - Processing template 1le0.pdb with 12 residues.
-2024-09-06 13:04:28,195 - INFO - Estimated time: 0-3 sec (0-0 min)
-2024-09-06 13:04:31,106 - INFO - Processed template 5awl.pdb. Energy score: -125.94
-2024-09-06 13:04:32,129 - INFO - Processed template 1le1.pdb. Energy score: -98.69
-2024-09-06 13:04:32,273 - INFO - Processed template 1le0.pdb. Energy score: -100.71
-2024-09-06 13:04:37,257 - INFO - Processed template 1l2y.pdb. Energy score: -155.63
-2024-09-06 13:04:52,920 - INFO - Processed template 1vii.pdb. Energy score: -431.24
-2024-09-06 13:05:05,674 - INFO - Processed template 1crn.pdb. Energy score: -576.37
-2024-09-06 13:05:05,688 - INFO - Energy scores saved to 'results/example1_result.csv'.
+2024-09-06 13:30:02,290 - INFO - Loading DOPE score data...
+2024-09-06 13:30:02,732 - INFO - Processing sequences and templates...
+2024-09-06 13:30:02,732 - INFO - Processing sequence 1L2Y.fasta, length: 20
+2024-09-06 13:30:03,455 - INFO - Processing template 1le0.pdb with 12 residues.
+2024-09-06 13:30:03,456 - INFO - Estimated time: 1-12 sec (0-0 min)
+2024-09-06 13:30:03,457 - INFO - Processing template 1le1.pdb with 12 residues.
+2024-09-06 13:30:03,457 - INFO - Estimated time: 1-12 sec (0-0 min)
+2024-09-06 13:30:03,466 - INFO - Processing template 1vii.pdb with 36 residues.
+2024-09-06 13:30:03,466 - INFO - Estimated time: 9-104 sec (0-2 min)
+2024-09-06 13:30:03,470 - INFO - Processing template 5awl.pdb with 10 residues.
+2024-09-06 13:30:03,470 - INFO - Estimated time: 1-8 sec (0-0 min)
+2024-09-06 13:30:03,472 - INFO - Processing template 1l2y.pdb with 20 residues.
+2024-09-06 13:30:03,472 - INFO - Estimated time: 3-32 sec (0-0 min)
+2024-09-06 13:30:03,513 - INFO - Processing template 1crn.pdb with 46 residues.
+2024-09-06 13:30:03,513 - INFO - Estimated time: 14-169 sec (0-3 min)
+2024-09-06 13:30:14,150 - INFO - Processed template 5awl.pdb. Energy score: -525.06
+2024-09-06 13:30:18,791 - INFO - Processed template 1le1.pdb. Energy score: -419.29
+2024-09-06 13:30:19,292 - INFO - Processed template 1le0.pdb. Energy score: -394.24
+2024-09-06 13:30:44,532 - INFO - Processed template 1l2y.pdb. Energy score: -469.83
+2024-09-06 13:31:49,776 - INFO - Processed template 1vii.pdb. Energy score: -1051.97
+2024-09-06 13:32:42,218 - INFO - Processed template 1crn.pdb. Energy score: -1315.65
+2024-09-06 13:32:42,231 - INFO - Energy scores saved to 'results/example1_energy_scores.csv'.
 ```
 
 #### Result
 
 > `results/example1_result.csv`:
 > |              | 1crn.pdb                        | 1l2y.pdb                        | 1le0.pdb                        | 1le1.pdb                        | 1vii.pdb                        | 5awl.pdb                        |
-> |--------------|----------------------------------|----------------------------------|----------------------------------|----------------------------------|----------------------------------|----------------------------------|
-> | | ![1crn](data/assets/1crn.png)    | ![1l2y](data/assets/1l2y.png)    | ![1le0](data/assets/1le0.png)    | ![1le1](data/assets/1le1.png)    | ![1vii](data/assets/1vii.png)    | ![5awl](data/assets/5awl.png)    |
-> | 5AWL.fasta   | -576.37                          | -155.63                          | -100.71                          | -98.69                           | -431.24                          | -125.94                          |
-> |![1crn](data/assets/1crn.png) | ||| |                  |                     |
+> |:--------------:|:----------------------------------:|:----------------------------------:|:----------------------------------:|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+> | 1L2Y.fasta    | -1315.65                          | -469.83                         | -394.24                          | -419.29                           | -1051.97                          | -525.06                          |
+> | ![1l2y](doc/assets/1l2y.png) | ![1crn](doc/assets/1crn.png)   | ![1l2y](doc/assets/1l2y.png)    | ![1le0](doc/assets/1le0.png)    | ![1le1](doc/assets/1le1.png)    | ![1vii](doc/assets/1vii.png)    | ![5awl](doc/assets/5awl.png)    |
+
+
 
 
 
