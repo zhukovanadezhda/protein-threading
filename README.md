@@ -13,7 +13,6 @@ This project focuses on protein structure prediction using the [threading (fold 
   </i>
 </p>
 
----
 
 ## Installation
 
@@ -44,9 +43,10 @@ conda activate protein-threading
 
 ## Usage
 
-> **Note:** Before running the program, ensure the `src/config.py` file is properly configured to set up your working directories.
-> **To run an example:** Select one of the provided example directories (e.g., `data/example1`).
-> **To use custom data:** Create your own directory (e.g., `data/your_dir`) with subdirectories for `sequences` and `templates`. Place your data in these folders and update the paths in `src/config.py`.
+> **Note:** Before running the program, ensure the `src/config.py` file is properly configured to set up your working directories.  
+> - **To run an example:** Select one of the provided example directories (e.g., `data/example1`).  
+> - **To use custom data:** Create your own directory (e.g., `data/your_dir`) with subdirectories for `sequences` and `templates`. Place your data in these folders and update the paths in `src/config.py`.
+>   
 > Example `src/config.py` modification:
 > ```python
 > # Directory paths
