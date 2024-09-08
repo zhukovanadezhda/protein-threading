@@ -127,22 +127,31 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:center;">1L2Y.fasta</td>
-      <td style="text-align:center;">-1315.65</td>
-      <td style="text-align:center;">-469.83</td>
-      <td style="text-align:center;">-394.24</td>
-      <td style="text-align:center;">-419.29</td>
-      <td style="text-align:center;">-1051.97</td>
-      <td style="text-align:center;">-525.06</td>
+      <td> </td>
+      <td><p align="center">46 aa</p></td>
+      <td><p align="center">20 aa</p></td>
+      <td><p align="center">12 aa</p></td>
+      <td><p align="center">12 aa</p></td>
+      <td><p align="center">36 aa</p></td>
+      <td><p align="center">10 aa</p></td>
     </tr>
     <tr>
-      <td style="text-align:center;"><img src="doc/assets/1l2y.png" alt="1l2y" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/1crn.png" alt="1crn" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/1l2y.png" alt="1l2y" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/1le0.png" alt="1le0" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/1le1.png" alt="1le1" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/1vii.png" alt="1vii" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/5awl.png" alt="5awl" width="100"></td>
+      <td><p align="center">1L2Y.fasta</p></td>
+      <td><p align="center">-1315.65</p></td>
+      <td><p align="center">-469.83</p></td>
+      <td><p align="center">-394.24</p></td>
+      <td><p align="center">-419.29</p></td>
+      <td><p align="center">-1051.97</p></td>
+      <td><p align="center">-525.06</p></td>
+    </tr>
+    <tr>
+      <td><img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="100"></td>
+      <td><img src="doc/assets/1crn.png" align="center" alt="1crn" width="100"></td>
+      <td><img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="100"></td>
+      <td><img src="doc/assets/1le0.png" align="center" alt="1le0" width="100"></td>
+      <td><img src="doc/assets/1le1.png" align="center" alt="1le1" width="100"></td>
+      <td><img src="doc/assets/1vii.png" align="center" alt="1vii" width="100"></td>
+      <td><img src="doc/assets/5awl.png" align="center" alt="5awl" width="100"></td>
     </tr>
   </tbody>
 </table>
@@ -178,24 +187,34 @@ python src/main.py --output_file results/example2_result.csv
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:center;">1E68.fasta</td>
-      <td style="text-align:center;">-10761.13</td>
-      <td style="text-align:center;">-12968.85</td>
-      <td style="text-align:center;">-13892.91</td>
-      <td style="text-align:center;">-13937.92</td>
-      <td style="text-align:center;">-12498.24</td>
-      <td style="text-align:center;">-17037.28</td>
-      <td style="text-align:center;">-16702.83</td>
+      <td><p align="center"></p></td>
+      <td><p align="center">70 aa</p></td>
+      <td><p align="center">76 aa</p></td>
+      <td><p align="center">81 aa</p></td>
+      <td><p align="center">82 aa</p></td>
+      <td><p align="center">89 aa</p></td>
+      <td><p align="center">116 aa</p></td>
+      <td><p align="center">118 aa</p></td>
     </tr>
     <tr>
-      <td style="text-align:center;"><img src="doc/assets/1e68.png" alt="1e68" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/1e68.png" alt="1e68" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/1ubq.png" alt="1ubq" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/3zow.png" alt="3zow" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/3e8v.png" alt="3e8v" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/1tit.png" alt="1tit" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/1tvd.png" alt="1tvd" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/3zbv.png" alt="3zbv" width="100"></td>
+      <td><p align="center">1E68.fasta</p></td>
+      <td><p align="center">-10761.13</p></td>
+      <td><p align="center">-12968.85</p></td>
+      <td><p align="center">-13892.91</p></td>
+      <td><p align="center">-13937.92</p></td>
+      <td><p align="center">-12498.24</p></td>
+      <td><p align="center">-17037.28</p></td>
+      <td><p align="center">-16702.83</p></td>
+    </tr>
+    <tr>
+      <td><img src="doc/assets/1e68.png" align="center" alt="1e68" width="100"></td>
+      <td><img src="doc/assets/1e68.png" align="center" alt="1e68" width="100"></td>
+      <td><img src="doc/assets/1ubq.png" align="center" alt="1ubq" width="100"></td>
+      <td><img src="doc/assets/3zow.png" align="center" alt="3zow" width="100"></td>
+      <td><img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="100"></td>
+      <td><img src="doc/assets/1tit.png" align="center" alt="1tit" width="100"></td>
+      <td><img src="doc/assets/1tvd.png" align="center" alt="1tvd" width="100"></td>
+      <td><img src="doc/assets/3zbv.png" align="center" alt="3zbv" width="100"></td>
     </tr>
   </tbody>
 </table>
