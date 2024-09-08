@@ -167,9 +167,34 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
 > SEQUENCES_DIR = 'data/example2/sequences/'
 > ```
 
+
 ```python
 python src/main.py --output_file results/example2_result.csv
 ```
+
+#### Output
+
+```python
+2024-09-06 13:53:52,363 - INFO - Loading DOPE score data...
+2024-09-06 13:53:53,055 - INFO - Processing sequences and templates...
+2024-09-06 13:53:53,055 - INFO - Processing sequence 1E68.fasta, length: 70
+2024-09-06 13:53:54,218 - INFO - Processing template 1ubq.pdb with 76 residues.
+2024-09-06 13:53:54,220 - INFO - Processing template 1tit.pdb with 89 residues.
+2024-09-06 13:53:54,226 - INFO - Processing template 1e68.pdb with 70 residues.
+2024-09-06 13:53:54,258 - INFO - Processing template 3zow.pdb with 81 residues.
+2024-09-06 13:53:54,280 - INFO - Processing template 1tvd.pdb with 116 residues.
+2024-09-06 13:53:54,300 - INFO - Processing template 3zbv.pdb with 118 residues.
+2024-09-06 13:53:54,404 - INFO - Processing template 3e8v.pdb with 82 residues.
+2024-09-06 16:52:15,554 - INFO - Processed template 1e68.pdb. Energy score: -10761.13
+2024-09-06 17:22:08,274 - INFO - Processed template 1ubq.pdb. Energy score: -12968.85
+2024-09-06 17:38:26,238 - INFO - Processed template 3zow.pdb. Energy score: -13892.91
+2024-09-06 17:43:28,768 - INFO - Processed template 3e8v.pdb. Energy score: -13937.92
+2024-09-06 18:01:05,063 - INFO - Processed template 1tit.pdb. Energy score: -12498.24
+2024-09-06 19:19:55,413 - INFO - Processed template 1tvd.pdb. Energy score: -17037.28
+2024-09-06 19:26:03,951 - INFO - Processed template 3zbv.pdb. Energy score: -16702.83
+2024-09-06 19:26:04,001 - INFO - Energy scores saved to 'results/example2_energy_scores.csv'.
+```
+
 #### Result
 
 <table>
