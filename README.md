@@ -45,12 +45,12 @@ conda activate protein-threading
 
 > **Note:** Before running the program, ensure the `src/config.py` file is properly configured to set up your working directories.  
 > - **To run an example:** Select one of the provided example directories (e.g., `data/example1`).  
-> - **To use custom data:** Create your own directory (e.g., `data/your_dir`) with subdirectories for `sequences` and `templates`. Place your data in these folders and update the paths in `src/config.py`.
+> - **To use custom data:** Create your own directory (e.g., `data/your_dir`) with subdirectories for `sequences` and `structures`. Place your data in these folders and update the paths in `src/config.py`.
 >   
 > Example `src/config.py` modification:
 > ```python
 > # Directory paths
-> TEMPLATES_DIR = 'data/your_dir/templates/'
+> TEMPLATES_DIR = 'data/your_dir/structures/'
 > SEQUENCES_DIR = 'data/your_dir/sequences/'
 > ```
 
@@ -73,14 +73,16 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 | `--dry_run`               | If set, only log actions without processing.                  | False (not set)   |
 | `--verbose`               | If set, verbose output enabled.                               | False (not set)   |
 
-## Example
+## Examples
+
+### Example 1: Small proteins <50 amino acids (time of execution: <5 min)
 
 #### Input
 
 > `src/config.py` :
 > ```python
 > # Directory paths
-> TEMPLATES_DIR = 'data/example1/templates/'
+> TEMPLATES_DIR = 'data/example1/structures/'
 > SEQUENCES_DIR = 'data/example1/sequences/'
 > ```
 
@@ -95,17 +97,11 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
 2024-09-06 13:30:02,732 - INFO - Processing sequences and templates...
 2024-09-06 13:30:02,732 - INFO - Processing sequence 1L2Y.fasta, length: 20
 2024-09-06 13:30:03,455 - INFO - Processing template 1le0.pdb with 12 residues.
-2024-09-06 13:30:03,456 - INFO - Estimated time: 1-12 sec (0-0 min)
 2024-09-06 13:30:03,457 - INFO - Processing template 1le1.pdb with 12 residues.
-2024-09-06 13:30:03,457 - INFO - Estimated time: 1-12 sec (0-0 min)
 2024-09-06 13:30:03,466 - INFO - Processing template 1vii.pdb with 36 residues.
-2024-09-06 13:30:03,466 - INFO - Estimated time: 9-104 sec (0-2 min)
 2024-09-06 13:30:03,470 - INFO - Processing template 5awl.pdb with 10 residues.
-2024-09-06 13:30:03,470 - INFO - Estimated time: 1-8 sec (0-0 min)
 2024-09-06 13:30:03,472 - INFO - Processing template 1l2y.pdb with 20 residues.
-2024-09-06 13:30:03,472 - INFO - Estimated time: 3-32 sec (0-0 min)
 2024-09-06 13:30:03,513 - INFO - Processing template 1crn.pdb with 46 residues.
-2024-09-06 13:30:03,513 - INFO - Estimated time: 14-169 sec (0-3 min)
 2024-09-06 13:30:14,150 - INFO - Processed template 5awl.pdb. Energy score: -525.06
 2024-09-06 13:30:18,791 - INFO - Processed template 1le1.pdb. Energy score: -419.29
 2024-09-06 13:30:19,292 - INFO - Processed template 1le0.pdb. Energy score: -394.24
@@ -151,9 +147,58 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
   </tbody>
 </table>
 
+### Example 2: Middle-size proteins 70-120 amino acids (time of execution: >10h)
 
+#### Input
 
+> `src/config.py` :
+> ```python
+> # Directory paths
+> TEMPLATES_DIR = 'data/example2/structures/'
+> SEQUENCES_DIR = 'data/example2/sequences/'
+> ```
 
+```python
+python src/main.py --output_file results/example2_result.csv
+```
+#### Result
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center;"> </th>
+      <th style="text-align:center; width: 150px;">1e68.pdb</th>
+      <th style="text-align:center; width: 150px;">1ubq.pdb</th>
+      <th style="text-align:center; width: 150px;">3zow.pdb</th>
+      <th style="text-align:center; width: 150px;">3e8v.pdb</th>
+      <th style="text-align:center; width: 150px;">1tit.pdb</th>
+      <th style="text-align:center; width: 150px;">1tvd.pdb</th>
+      <th style="text-align:center; width: 150px;">3zbv.pdb</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center;">1E68.fasta</td>
+      <td style="text-align:center;">-10761.13</td>
+      <td style="text-align:center;">-12968.85</td>
+      <td style="text-align:center;">-13892.91</td>
+      <td style="text-align:center;">-13937.92</td>
+      <td style="text-align:center;">-12498.24</td>
+      <td style="text-align:center;">-17037.28</td>
+      <td style="text-align:center;">-16702.83</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;"><img src="doc/assets/1e68.png" alt="1e68" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/1e68.png" alt="1e68" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/1ubq.png" alt="1ubq" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/3zow.png" alt="3zow" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/3e8v.png" alt="3e8v" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/1tit.png" alt="1tit" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/1tvd.png" alt="1tvd" width="100"></td>
+      <td style="text-align:center;"><img src="doc/assets/3zbv.png" alt="3zbv" width="100"></td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## Contact
