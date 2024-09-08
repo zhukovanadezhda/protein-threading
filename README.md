@@ -136,7 +136,7 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
       <td><p align="center">10 aa</p></td>
     </tr>
     <tr>
-      <td><p align="center">1L2Y.fasta</p></td>
+      <td><p align="center">1L2Y.fasta <br><img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="100"></p></td>
       <td><p align="center">-1315.65</p></td>
       <td><p align="center">-469.83</p></td>
       <td><p align="center">-394.24</p></td>
@@ -145,7 +145,7 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
       <td><p align="center">-525.06</p></td>
     </tr>
     <tr>
-      <td><img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="100"></td>
+      <td></td>
       <td><img src="doc/assets/1crn.png" align="center" alt="1crn" width="100"></td>
       <td><img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="100"></td>
       <td><img src="doc/assets/1le0.png" align="center" alt="1le0" width="100"></td>
@@ -222,7 +222,7 @@ python src/main.py --output_file results/example2_result.csv
       <td><p align="center">118 aa</p></td>
     </tr>
     <tr>
-      <td><p align="center">1E68.fasta</p></td>
+      <td><p align="center">1E68.fasta <br> <img src="doc/assets/1e68.png" align="center" alt="1e68" width="100"></p></td>
       <td><p align="center">-10761.13</p></td>
       <td><p align="center">-12968.85</p></td>
       <td><p align="center">-13892.91</p></td>
@@ -231,8 +231,17 @@ python src/main.py --output_file results/example2_result.csv
       <td><p align="center">-17037.28</p></td>
       <td><p align="center">-16702.83</p></td>
     </tr>
+    <td><p align="center">3E8V.fasta <br> <img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="100"></p></td>
+      <td><p align="center"></p>-14196.34</p></td>
+      <td><p align="center"></p>-16873.19</p></td>
+      <td><p align="center"></p>-18082.49</p></td>
+      <td><p align="center"></p>-18373.36</p></td>
+      <td><p align="center"></p>-16229.49</p></td>
+      <td><p align="center"></p>-21858.97</p></td>
+      <td><p align="center"></p>-21617.74</p></td>
+    </tr>
     <tr>
-      <td><img src="doc/assets/1e68.png" align="center" alt="1e68" width="100"></td>
+      <td></td>
       <td><img src="doc/assets/1e68.png" align="center" alt="1e68" width="100"></td>
       <td><img src="doc/assets/1ubq.png" align="center" alt="1ubq" width="100"></td>
       <td><img src="doc/assets/3zow.png" align="center" alt="3zow" width="100"></td>
