@@ -117,12 +117,12 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
   <thead>
     <tr>
       <th style="text-align:center;"> </th>
-      <th style="text-align:center; width: 300px;">1crn.pdb</th>
-      <th style="text-align:center; width: 300px;">1l2y.pdb</th>
-      <th style="text-align:center; width: 300px;">1le0.pdb</th>
-      <th style="text-align:center; width: 300px;">1le1.pdb</th>
-      <th style="text-align:center; width: 300px;">1vii.pdb</th>
-      <th style="text-align:center; width: 300px;">5awl.pdb</th>
+      <th style="text-align:center; width: 150px;">1crn.pdb</th>
+      <th style="text-align:center; width: 150px;">1l2y.pdb</th>
+      <th style="text-align:center; width: 150px;">1le0.pdb</th>
+      <th style="text-align:center; width: 150px;">1le1.pdb</th>
+      <th style="text-align:center; width: 150px;">1vii.pdb</th>
+      <th style="text-align:center; width: 150px;">5awl.pdb</th>
     </tr>
   </thead>
   <tbody>
@@ -137,7 +137,7 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
     </tr>
     <tr>
       <td style="text-align:center;"><img src="doc/assets/1l2y.png" alt="1l2y" width="100"></td>
-      <td style="text-align:center;"><img src="doc/assets/1crn.png" alt="1crn" width="300"></td>
+      <td style="text-align:center;"><img src="doc/assets/1crn.png" alt="1crn" width="100"></td>
       <td style="text-align:center;"><img src="doc/assets/1l2y.png" alt="1l2y" width="100"></td>
       <td style="text-align:center;"><img src="doc/assets/1le0.png" alt="1le0" width="100"></td>
       <td style="text-align:center;"><img src="doc/assets/1le1.png" alt="1le1" width="100"></td>
