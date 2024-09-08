@@ -36,7 +36,7 @@ conda env create -f environment.yml
 conda activate protein-threading
 ```
 
-> **Note:** to deactivate an active environment, use:
+> **Note:** To deactivate an active environment, use:
 > ```bash
 > conda deactivate
 > ```
@@ -93,7 +93,7 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 > ```
 
 ```python
-python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.csv
+python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --output_file results/example1_result.csv
 ```
 
 #### Results
