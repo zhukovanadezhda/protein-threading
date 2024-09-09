@@ -123,39 +123,39 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --out
       </tr>
       <tr>
         <td><p align="center">1CRN.fasta</p><img src="doc/assets/1crn.png" alt="1CRN" width="70"></td>
-        <td><p align="center"><i><b>-5088.59</b></i></p></td>
-        <td><p align="center">-2441.34</p></td>
-        <td><p align="center">-2256.41</p></td>
-        <td><p align="center">-2438.24</p></td>
-        <td><p align="center">-4252.58</p></td>
-        <td><p align="center">-2864.66</p></td>
+        <td><p align="center"><i><b>-283.99</b></i></p></td>
+        <td><p align="center">-35.37</p></td>
+        <td><p align="center">-10.5</p></td>
+        <td><p align="center">-13.05</p></td>
+        <td><p align="center">-162.04</p></td>
+        <td><p align="center">-9.02</p></td>
       </tr>
       <tr>
         <td><p align="center">1L2Y.fasta</p><img src="doc/assets/1l2y.png" alt="1L2Y" width="70"></td>
-        <td><p align="center"><b>-1315.65</b></p></td>
-        <td><p align="center"><i>-469.83</p></i></td>
-        <td><p align="center">-394.24</p></td>
-        <td><p align="center">-419.29</p></td>
-        <td><p align="center">-1051.97</p></td>
-        <td><p align="center">-525.06</p></td>
+        <td><p align="center">-14.77</p></td>
+        <td><p align="center"><b><i>-67.4</p></b></i></td>
+        <td><p align="center">-19.18</p></td>
+        <td><p align="center">-20.23</p></td>
+        <td><p align="center">-41.71</p></td>
+        <td><p align="center">-17.53</p></td>
       </tr>
       <tr>
         <td><p align="center">1VII.fasta</p><img src="doc/assets/1vii.png" alt="1VII Structure" width="70"></td>
-        <td><p align="center"><b>-3294.57</b></p></td>
-        <td><p align="center">-1454.65</p></td>
-        <td><p align="center">-1301.12</p></td>
-        <td><p align="center">-1430.44</p></td>
-        <td><p align="center"><i>-2748.76</i></p></td>
-        <td><p align="center">-1721.91</p></td>
+        <td><p align="center">-157.37</p></td>
+        <td><p align="center">-24.16</p></td>
+        <td><p align="center">7.61</p></td>
+        <td><p align="center">7.23</p></td>
+        <td><p align="center"><b><i>-169.07</b></i></p></td>
+        <td><p align="center">6.95</p></td>
       </tr>
       <tr>
         <td><p align="center">5AWL.fasta</p><img src="doc/assets/5awl.png" alt="5AWL" width="70"></td>
-        <td><p align="center"><b>-576.37</b></p></td>
-        <td><p align="center">-155.63</p></td>
-        <td><p align="center">-100.71</p></td>
-        <td><p align="center">-98.69</p></td>
-        <td><p align="center">-431.24</p></td>
-        <td><p align="center"><i>-125.94</i></p></td>
+        <td><p align="center">6.73</p></td>
+        <td><p align="center">-19.18</p></td>
+        <td><p align="center">-28.12</p></td>
+        <td><p align="center">-28.32</p></td>
+        <td><p align="center">3.62</p></td>
+        <td><p align="center"><b><i>-32.68</i></b></p></td>
       </tr>
       <tr>
         <td></td>
