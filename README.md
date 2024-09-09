@@ -103,10 +103,10 @@ python src/main.py --gap_score 0.9 --output_file results/example0_result.csv
     <thead>
       <tr>
         <th style="text-align:center;"> </th>
-        <th style="text-align:center; width: 150px;">1VGJA.pdb</th>
-        <th style="text-align:center; width: 150px;">2AHDA.pdb</th>
-        <th style="text-align:center; width: 150px;">2II2A.pdb</th>
-        <th style="text-align:center; width: 150px;">3DYNA.pdb</th>
+        <th style="text-align:center; width: 150px;">1vgja.pdb</th>
+        <th style="text-align:center; width: 150px;">2ahda.pdb</th>
+        <th style="text-align:center; width: 150px;">2ii2a.pdb</th>
+        <th style="text-align:center; width: 150px;">3dyna.pdb</th>
       </tr>
     </thead>
     <tbody>
@@ -155,6 +155,14 @@ python src/main.py --gap_score 0.9 --output_file results/example0_result.csv
     </tbody>
   </table>
 </div>
+
+<p align="center">
+  <i>
+    Table 2: Summary of results from the zero example.<br>
+    "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
+  </i>
+</p>
+
 
 
 ### Example 1: Small proteins <50 amino acids (time of execution: <5 min)
