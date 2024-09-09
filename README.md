@@ -1,6 +1,6 @@
 # Protein Structure Prediction Using Threading
 
-This project focuses on protein structure prediction using the [threading (fold recognition) method](https://en.wikipedia.org/wiki/Threading_(protein_sequence)). Threading is a computational approach that aligns a target protein sequence with known structures to predict its 3D structure, even when sequence similarity is low. This method identifies candidate templates by considering both sequence and structural similarities, such as predicted secondary structures and solvent accessibility. By mapping the target sequence onto structurally similar templates, threading can accurately predict protein folds, making it a valuable tool in bioinformatics, medicine, and biotechnology.
+This project focuses on protein structure prediction using the [threading (fold recognition) method](https://en.wikipedia.org/wiki/Threading_(protein_sequence)). Threading is a computational approach that aligns a protein sequence with known template structures to predict its 3D structure, even when sequence similarity is low. This method identifies candidate templates by considering structural similarities, such as predicted secondary structures and solvent accessibility. By mapping the sequence onto structurally similar templates, threading can accurately predict protein folds, making it a valuable tool in bioinformatics, medicine, and biotechnology.
 
 <p align="center">
   <img align="center" width="800px" 
@@ -36,7 +36,7 @@ conda env create -f environment.yml
 conda activate protein-threading
 ```
 
-> **Note:** to deactivate an active environment, use:
+> **Note:** To deactivate an active environment, use:
 > ```bash
 > conda deactivate
 > ```
@@ -73,7 +73,89 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 | `--dry_run`               | If set, only log actions without processing.                  | False (not set)   |
 | `--verbose`               | If set, verbose output enabled.                               | False (not set)   |
 
+<p align="center">
+  <i>
+    Table 1: Program parameters.
+  </i>
+</p>
+
 ## Examples
+
+### Example 1: Small proteins <30 amino acids
+
+#### Input
+
+> `src/config.py` :
+> ```python
+> # Directory paths
+> TEMPLATES_DIR = 'data/example0/structures/'
+> SEQUENCES_DIR = 'data/example0/sequences/'
+> ```
+
+```python
+python src/main.py --gap_score 0.9 --output_file results/example0_result.csv
+```
+
+#### Results
+
+<div style="text-align:center;">
+  <table align="center">
+    <thead>
+      <tr>
+        <th style="text-align:center;"> </th>
+        <th style="text-align:center; width: 150px;">1VGJA.pdb</th>
+        <th style="text-align:center; width: 150px;">2AHDA.pdb</th>
+        <th style="text-align:center; width: 150px;">2II2A.pdb</th>
+        <th style="text-align:center; width: 150px;">3DYNA.pdb</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> </td>
+        <td><p align="center">28 aa</p></td>
+        <td><p align="center">24 aa</p></td>
+        <td><p align="center">26 aa</p></td>
+        <td><p align="center">21 aa</p></td>
+      </tr>
+      <tr>
+        <td><p align="center">1VGJA.fasta</p><img src="doc/assets/1vgja.png" alt="1VGJA" width="70"></td>
+        <td><p align="center"><i><b>-58.27</b></i></p></td>
+        <td><p align="center">16.93</p></td>
+        <td><p align="center">-54.8</p></td>
+        <td><p align="center">37.12</p></td>
+      </tr>
+      <tr>
+        <td><p align="center">2AHDA.fasta</p><img src="doc/assets/2ahda.png" alt="2AHDA" width="70"></td>
+        <td><p align="center">-22.88</p></td>
+        <td><p align="center"><i>-61.82</p></i></td>
+        <td><p align="center"><i><b>-75.0</b></i></p></td>
+        <td><p align="center">-6.22</p></td>
+      </tr>
+      <tr>
+        <td><p align="center">2II2A.fasta</p><img src="doc/assets/2ii2a.png" alt="2II2A" width="70"></td>
+        <td><p align="center">41.07</p></td>
+        <td><p align="center">-15.72</p></td>
+        <td><p align="center"><i>-8.85</i></p></td>
+        <td><p align="center"><b>-74.9</b></p></td>
+      </tr>
+      <tr>
+        <td><p align="center">3DYNA.fasta</p><img src="doc/assets/3dyna.png" alt="3DYNA" width="70"></td>
+        <td><p align="center">34.91</p></td>
+        <td><p align="center">-30.13</p></td>
+        <td><p align="center">-27.43</p></td>
+        <td><p align="center"><b><i>-62.26</b></i></p></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><img src="doc/assets/1vgja.png" align="center" alt="1VGJA" width="70"></td>
+        <td><img src="doc/assets/2ahda.png" align="center" alt="2AHDA" width="70"></td>
+        <td><img src="doc/assets/2ii2a.png" align="center" alt="2II2A" width="70"></td>
+        <td><img src="doc/assets/3dyna.png" align="center" alt="3DYNA" width="70"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 
 ### Example 1: Small proteins <50 amino acids (time of execution: <5 min)
 
@@ -87,74 +169,90 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 > ```
 
 ```python
-python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.csv
+python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap_score 0.2 --output_file results/example1_result.csv
 ```
 
-#### Output
+#### Results
 
-```python
-2024-09-06 13:30:02,290 - INFO - Loading DOPE score data...
-2024-09-06 13:30:02,732 - INFO - Processing sequences and templates...
-2024-09-06 13:30:02,732 - INFO - Processing sequence 1L2Y.fasta, length: 20
-2024-09-06 13:30:03,455 - INFO - Processing template 1le0.pdb with 12 residues.
-2024-09-06 13:30:03,457 - INFO - Processing template 1le1.pdb with 12 residues.
-2024-09-06 13:30:03,466 - INFO - Processing template 1vii.pdb with 36 residues.
-2024-09-06 13:30:03,470 - INFO - Processing template 5awl.pdb with 10 residues.
-2024-09-06 13:30:03,472 - INFO - Processing template 1l2y.pdb with 20 residues.
-2024-09-06 13:30:03,513 - INFO - Processing template 1crn.pdb with 46 residues.
-2024-09-06 13:30:14,150 - INFO - Processed template 5awl.pdb. Energy score: -525.06
-2024-09-06 13:30:18,791 - INFO - Processed template 1le1.pdb. Energy score: -419.29
-2024-09-06 13:30:19,292 - INFO - Processed template 1le0.pdb. Energy score: -394.24
-2024-09-06 13:30:44,532 - INFO - Processed template 1l2y.pdb. Energy score: -469.83
-2024-09-06 13:31:49,776 - INFO - Processed template 1vii.pdb. Energy score: -1051.97
-2024-09-06 13:32:42,218 - INFO - Processed template 1crn.pdb. Energy score: -1315.65
-2024-09-06 13:32:42,231 - INFO - Energy scores saved to 'results/example1_energy_scores.csv'.
-```
+<div style="text-align:center;">
+  <table align="center">
+    <thead>
+      <tr>
+        <th style="text-align:center;"> </th>
+        <th style="text-align:center; width: 150px;">1crn.pdb</th>
+        <th style="text-align:center; width: 150px;">1l2y.pdb</th>
+        <th style="text-align:center; width: 150px;">1le0.pdb</th>
+        <th style="text-align:center; width: 150px;">1le1.pdb</th>
+        <th style="text-align:center; width: 150px;">1vii.pdb</th>
+        <th style="text-align:center; width: 150px;">5awl.pdb</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> </td>
+        <td><p align="center">46 aa</p></td>
+        <td><p align="center">20 aa</p></td>
+        <td><p align="center">12 aa</p></td>
+        <td><p align="center">12 aa</p></td>
+        <td><p align="center">36 aa</p></td>
+        <td><p align="center">10 aa</p></td>
+      </tr>
+      <tr>
+        <td><p align="center">1CRN.fasta</p><img src="doc/assets/1crn.png" alt="1CRN" width="70"></td>
+        <td><p align="center"><i><b>-283.99</b></i></p></td>
+        <td><p align="center">-35.37</p></td>
+        <td><p align="center">-10.5</p></td>
+        <td><p align="center">-13.05</p></td>
+        <td><p align="center">-162.04</p></td>
+        <td><p align="center">-9.02</p></td>
+      </tr>
+      <tr>
+        <td><p align="center">1L2Y.fasta</p><img src="doc/assets/1l2y.png" alt="1L2Y" width="70"></td>
+        <td><p align="center">-14.77</p></td>
+        <td><p align="center"><b><i>-67.4</p></b></i></td>
+        <td><p align="center">-19.18</p></td>
+        <td><p align="center">-20.23</p></td>
+        <td><p align="center">-41.71</p></td>
+        <td><p align="center">-17.53</p></td>
+      </tr>
+      <tr>
+        <td><p align="center">1VII.fasta</p><img src="doc/assets/1vii.png" alt="1VII" width="70"></td>
+        <td><p align="center">-157.37</p></td>
+        <td><p align="center">-24.16</p></td>
+        <td><p align="center">7.61</p></td>
+        <td><p align="center">7.23</p></td>
+        <td><p align="center"><b><i>-169.07</b></i></p></td>
+        <td><p align="center">6.95</p></td>
+      </tr>
+      <tr>
+        <td><p align="center">5AWL.fasta</p><img src="doc/assets/5awl.png" alt="5AWL" width="70"></td>
+        <td><p align="center">6.73</p></td>
+        <td><p align="center">-19.18</p></td>
+        <td><p align="center">-28.12</p></td>
+        <td><p align="center">-28.32</p></td>
+        <td><p align="center">3.62</p></td>
+        <td><p align="center"><b><i>-32.68</i></b></p></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><img src="doc/assets/1crn.png" align="center" alt="1crn" width="70"></td>
+        <td><img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="70"></td>
+        <td><img src="doc/assets/1le0.png" align="center" alt="1le0" width="70"></td>
+        <td><img src="doc/assets/1le1.png" align="center" alt="1le1" width="70"></td>
+        <td><img src="doc/assets/1vii.png" align="center" alt="1vii" width="70"></td>
+        <td><img src="doc/assets/5awl.png" align="center" alt="5awl" width="70"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-#### Result
+<p align="center">
+  <i>
+    Table 2: Summary of results from the first example.<br>
+    "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
+  </i>
+</p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:center;"> </th>
-      <th style="text-align:center; width: 150px;">1crn.pdb</th>
-      <th style="text-align:center; width: 150px;">1l2y.pdb</th>
-      <th style="text-align:center; width: 150px;">1le0.pdb</th>
-      <th style="text-align:center; width: 150px;">1le1.pdb</th>
-      <th style="text-align:center; width: 150px;">1vii.pdb</th>
-      <th style="text-align:center; width: 150px;">5awl.pdb</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td> </td>
-      <td><p align="center">46 aa</p></td>
-      <td><p align="center">20 aa</p></td>
-      <td><p align="center">12 aa</p></td>
-      <td><p align="center">12 aa</p></td>
-      <td><p align="center">36 aa</p></td>
-      <td><p align="center">10 aa</p></td>
-    </tr>
-    <tr>
-      <td><p align="center">1L2Y.fasta</p></td>
-      <td><p align="center">-1315.65</p></td>
-      <td><p align="center">-469.83</p></td>
-      <td><p align="center">-394.24</p></td>
-      <td><p align="center">-419.29</p></td>
-      <td><p align="center">-1051.97</p></td>
-      <td><p align="center">-525.06</p></td>
-    </tr>
-    <tr>
-      <td><img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="100"></td>
-      <td><img src="doc/assets/1crn.png" align="center" alt="1crn" width="100"></td>
-      <td><img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="100"></td>
-      <td><img src="doc/assets/1le0.png" align="center" alt="1le0" width="100"></td>
-      <td><img src="doc/assets/1le1.png" align="center" alt="1le1" width="100"></td>
-      <td><img src="doc/assets/1vii.png" align="center" alt="1vii" width="100"></td>
-      <td><img src="doc/assets/5awl.png" align="center" alt="5awl" width="100"></td>
-    </tr>
-  </tbody>
-</table>
 
 ### Example 2: Middle-size proteins 70-120 amino acids (time of execution: >10h)
 
@@ -172,77 +270,72 @@ python src/main.py --sequences 5AWL.fasta --output_file results/example1_result.
 python src/main.py --output_file results/example2_result.csv
 ```
 
-#### Output
+#### Results
 
-```python
-2024-09-06 13:53:52,363 - INFO - Loading DOPE score data...
-2024-09-06 13:53:53,055 - INFO - Processing sequences and templates...
-2024-09-06 13:53:53,055 - INFO - Processing sequence 1E68.fasta, length: 70
-2024-09-06 13:53:54,218 - INFO - Processing template 1ubq.pdb with 76 residues.
-2024-09-06 13:53:54,220 - INFO - Processing template 1tit.pdb with 89 residues.
-2024-09-06 13:53:54,226 - INFO - Processing template 1e68.pdb with 70 residues.
-2024-09-06 13:53:54,258 - INFO - Processing template 3zow.pdb with 81 residues.
-2024-09-06 13:53:54,280 - INFO - Processing template 1tvd.pdb with 116 residues.
-2024-09-06 13:53:54,300 - INFO - Processing template 3zbv.pdb with 118 residues.
-2024-09-06 13:53:54,404 - INFO - Processing template 3e8v.pdb with 82 residues.
-2024-09-06 16:52:15,554 - INFO - Processed template 1e68.pdb. Energy score: -10761.13
-2024-09-06 17:22:08,274 - INFO - Processed template 1ubq.pdb. Energy score: -12968.85
-2024-09-06 17:38:26,238 - INFO - Processed template 3zow.pdb. Energy score: -13892.91
-2024-09-06 17:43:28,768 - INFO - Processed template 3e8v.pdb. Energy score: -13937.92
-2024-09-06 18:01:05,063 - INFO - Processed template 1tit.pdb. Energy score: -12498.24
-2024-09-06 19:19:55,413 - INFO - Processed template 1tvd.pdb. Energy score: -17037.28
-2024-09-06 19:26:03,951 - INFO - Processed template 3zbv.pdb. Energy score: -16702.83
-2024-09-06 19:26:04,001 - INFO - Energy scores saved to 'results/example2_energy_scores.csv'.
-```
-
-#### Result
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:center;"> </th>
-      <th style="text-align:center; width: 150px;">1e68.pdb</th>
-      <th style="text-align:center; width: 150px;">1ubq.pdb</th>
-      <th style="text-align:center; width: 150px;">3zow.pdb</th>
-      <th style="text-align:center; width: 150px;">3e8v.pdb</th>
-      <th style="text-align:center; width: 150px;">1tit.pdb</th>
-      <th style="text-align:center; width: 150px;">1tvd.pdb</th>
-      <th style="text-align:center; width: 150px;">3zbv.pdb</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><p align="center"></p></td>
-      <td><p align="center">70 aa</p></td>
-      <td><p align="center">76 aa</p></td>
-      <td><p align="center">81 aa</p></td>
-      <td><p align="center">82 aa</p></td>
-      <td><p align="center">89 aa</p></td>
-      <td><p align="center">116 aa</p></td>
-      <td><p align="center">118 aa</p></td>
-    </tr>
-    <tr>
-      <td><p align="center">1E68.fasta</p></td>
-      <td><p align="center">-10761.13</p></td>
-      <td><p align="center">-12968.85</p></td>
-      <td><p align="center">-13892.91</p></td>
-      <td><p align="center">-13937.92</p></td>
-      <td><p align="center">-12498.24</p></td>
-      <td><p align="center">-17037.28</p></td>
-      <td><p align="center">-16702.83</p></td>
-    </tr>
-    <tr>
-      <td><img src="doc/assets/1e68.png" align="center" alt="1e68" width="100"></td>
-      <td><img src="doc/assets/1e68.png" align="center" alt="1e68" width="100"></td>
-      <td><img src="doc/assets/1ubq.png" align="center" alt="1ubq" width="100"></td>
-      <td><img src="doc/assets/3zow.png" align="center" alt="3zow" width="100"></td>
-      <td><img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="100"></td>
-      <td><img src="doc/assets/1tit.png" align="center" alt="1tit" width="100"></td>
-      <td><img src="doc/assets/1tvd.png" align="center" alt="1tvd" width="100"></td>
-      <td><img src="doc/assets/3zbv.png" align="center" alt="3zbv" width="100"></td>
-    </tr>
-  </tbody>
-</table>
+<div style="text-align:center;">
+  <table align="center">
+    <thead>
+      <tr>
+        <th style="text-align:center;"> </th>
+        <th style="text-align:center; width: 150px;">1e68.pdb</th>
+        <th style="text-align:center; width: 150px;">1ubq.pdb</th>
+        <th style="text-align:center; width: 150px;">3zow.pdb</th>
+        <th style="text-align:center; width: 150px;">3e8v.pdb</th>
+        <th style="text-align:center; width: 150px;">1tit.pdb</th>
+        <th style="text-align:center; width: 150px;">1tvd.pdb</th>
+        <th style="text-align:center; width: 150px;">3zbv.pdb</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><p align="center"></p></td>
+        <td><p align="center">70 aa</p></td>
+        <td><p align="center">76 aa</p></td>
+        <td><p align="center">81 aa</p></td>
+        <td><p align="center">82 aa</p></td>
+        <td><p align="center">89 aa</p></td>
+        <td><p align="center">116 aa</p></td>
+        <td><p align="center">118 aa</p></td>
+      </tr>
+      <tr>
+        <td><p align="center">1E68.fasta <br> <img src="doc/assets/1e68.png" align="center" alt="1e68" width="70"></p></td>
+        <td><p align="center"><i>-10761.13</i></p></td>
+        <td><p align="center">-12968.85</p></td>
+        <td><p align="center">-13892.91</p></td>
+        <td><p align="center">-13937.92</p></td>
+        <td><p align="center">-12498.24</p></td>
+        <td><p align="center"><b>-17037.28</b></p></td>
+        <td><p align="center">-16702.83</p></td>
+      </tr>
+      <td><p align="center">3E8V.fasta <br> <img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="70"></p></td>
+        <td><p align="center"></p>-14196.34</p></td>
+        <td><p align="center"></p>-16873.19</p></td>
+        <td><p align="center"></p>-18082.49</p></td>
+        <td><p align="center"></p><i>-18373.36<i></p></td>
+        <td><p align="center"></p>-16229.49</p></td>
+        <td><p align="center"></p><b>-21858.97</b></p></td>
+        <td><p align="center"></p>-21617.74</p></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><img src="doc/assets/1e68.png" align="center" alt="1e68" width="70"></td>
+        <td><img src="doc/assets/1ubq.png" align="center" alt="1ubq" width="70"></td>
+        <td><img src="doc/assets/3zow.png" align="center" alt="3zow" width="70"></td>
+        <td><img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="70"></td>
+        <td><img src="doc/assets/1tit.png" align="center" alt="1tit" width="70"></td>
+        <td><img src="doc/assets/1tvd.png" align="center" alt="1tvd" width="70"></td>
+        <td><img src="doc/assets/3zbv.png" align="center" alt="3zbv" width="70"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+          
+<p align="center">
+  <i>
+    Table 3: Summary of results from the second example.<br>
+    "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
+  </i>
+</p>
 
 
 ## Contact
