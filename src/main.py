@@ -23,8 +23,10 @@ import argparse
 from joblib import Parallel, delayed
 import os
 import pandas as pd
+import numpy as np
 from multiprocessing import cpu_count
 import logging
+from typing import Tuple
 from config import DOPE_URL, SEQUENCES_DIR, TEMPLATES_DIR
 from load_data import (load_dope, read_fasta, pdb_to_c_alpha_coordinates,
                        coordinates_to_distance_matrix)
@@ -64,11 +66,10 @@ def load_sequences(sequences_dir: str) -> list:
     return os.listdir(sequences_dir)
 
 
-def process_template(
-    template: str, templates_dir: str, sequence: str, df_dope: pd.DataFrame,
-    jobs: int,
-    verbose: bool = False
-) -> float:
+def process_template(template: str, templates_dir: str, 
+                     sequence: str, df_dope: pd.DataFrame, 
+                     gap_score: float, print_alignments: bool, 
+                     jobs: int, verbose: bool = False) -> float:
     """
     Process a single template by calculating the energy score for a sequence.
 
@@ -87,22 +88,23 @@ def process_template(
     """
     try:
         pdb_file = os.path.join(templates_dir, template)
+        
+        if not os.path.exists(pdb_file):
+            raise FileNotFoundError(f"PDB file not found: {pdb_file}")
+
         coords = pdb_to_c_alpha_coordinates(pdb_file)
         dist_matrix = coordinates_to_distance_matrix(coords)
         n = coords.shape[0]
         m = len(sequence)
-        complexity = n**2 * m**2
         logging.info(f"Processing template {template} with {n} residues.")
-        logging.info(
-            f"Estimated time: "
-            f"{round(complexity * 2e-4 / jobs)}-{round(complexity * 2e-4)} sec "
-            f"({round(complexity * 3e-6 / jobs)}-{round(complexity * 3e-6)} min)"
-        )
 
         low_level_matrices = fill_low_level_matrices(
-            n, m, sequence, dist_matrix, df_dope
-        )
-        energy_score = fill_high_level_matrix(low_level_matrices)[-1, -1]
+            n, m, sequence, dist_matrix, gap_score, df_dope
+            )
+        high_level_matrix = fill_high_level_matrix(low_level_matrices,
+                                                   gap_score, sequence, 
+                                                   print_alignments)
+        energy_score = high_level_matrix[-1, -1]
         energy_score = round(energy_score, 2)
         logging.info(f"Processed template {template}. "
                      f"Energy score: {energy_score}")
@@ -112,23 +114,24 @@ def process_template(
         return float('nan')
 
 
-def process_template_wrapper(
-    template: str, sequence: str, templates_dir: str, df_dope: pd.DataFrame,
-    jobs: int, verbose: bool
-) -> float:
+def process_template_wrapper(template: str, sequence: str, templates_dir: str, 
+                             df_dope: pd.DataFrame, gap_score: float, 
+                             print_alignments: bool, jobs: int, 
+                             verbose: bool) -> float:
     """
     Wrapper function for process_template to use with multiprocessing.
     """
     return process_template(
-        template, templates_dir, sequence, df_dope, jobs, verbose
+        template, templates_dir, sequence, df_dope, gap_score, print_alignments, jobs, verbose
     )
 
 
-def process_sequences_and_templates(
-    sequences: list, templates: list, df_dope: pd.DataFrame, 
-    templates_dir: str, verbose: bool = False, 
-    dry_run: bool = False, jobs: int = cpu_count()
-) -> pd.DataFrame:
+def process_sequences_and_templates(sequences: list, templates: list, 
+                                    df_dope: pd.DataFrame, templates_dir: str, 
+                                    gap_score: float, verbose: bool = False,
+                                    dry_run: bool = False, 
+                                    print_alignments: bool = False,
+                                    jobs: int = cpu_count()) -> pd.DataFrame:
     """
     Process all sequences from the list and compare them
     with all templates, using parallel processing with joblib.
@@ -165,21 +168,19 @@ def process_sequences_and_templates(
         # Parallelize the template processing
         results = Parallel(n_jobs=jobs)(
             delayed(process_template_wrapper)(
-                template, sequence, templates_dir, df_dope, jobs, verbose
+                template, sequence, templates_dir, df_dope, gap_score, print_alignments, jobs, verbose
             ) for template in templates
         )
 
         # Store the energy scores for each template
         for template, energy_score in zip(templates, results):
-            energy_scores[sequence_file][template] = energy_score
+             energy_scores[sequence_file][template] = energy_score
 
     return pd.DataFrame(energy_scores).T
 
 
-def save_energy_scores(
-    energy_scores_df: pd.DataFrame, 
-    filename: str = 'energy_scores.csv'
-) -> None:
+def save_energy_scores(energy_scores_df: pd.DataFrame, 
+                       filename: str = 'results/energy_scores.csv') -> None:
     """
     Save the energy scores DataFrame to a CSV file.
 
@@ -219,6 +220,12 @@ def main() -> None:
         help='Comma-separated list of template filenames'
         )
     parser.add_argument(
+        '--gap_score', 
+        type=float, 
+        default=0.0, 
+        help='Gap score for sequence to structure alignment'
+        )
+    parser.add_argument(
         '--output_file',
         type=str, 
         default='results/energy_scores.csv', 
@@ -229,6 +236,11 @@ def main() -> None:
         type=int, 
         default=cpu_count(), 
         help='Number of parallel jobs to run, default is all cores'
+        )
+    parser.add_argument(
+        '--print_alignments', 
+        action='store_true', 
+        help='Print sequence-template alignments'
         )
     parser.add_argument(
         '--dry_run', 
@@ -276,7 +288,9 @@ def main() -> None:
         templates, 
         df_dope, 
         TEMPLATES_DIR, 
+        gap_score=args.gap_score,
         verbose=args.verbose, 
+        print_alignments=args.print_alignments,
         dry_run=args.dry_run, 
         jobs=args.jobs
     )
