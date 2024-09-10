@@ -8,3 +8,7 @@ dependencies:
   - pandas
   - biopython
   - joblib
+  - scipy
+  - watermark
+  - tqdm
+  - matplotlib
