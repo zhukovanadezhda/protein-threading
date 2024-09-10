@@ -71,8 +71,8 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 | `--gap_score`             | The gap penalty.                                              | `0`|
 | `--output_file`           | Name of the output CSV file.                                  | `results/energy_scores.csv`|
 | `--jobs`                  | Number of parallel jobs to run.                               | All cores         |
-| `--dry_run`               | If set, only log actions without processing.                  | False (not set)   |
-| `--verbose`               | If set, verbose output enabled.                               | False (not set)   |
+| `--dry_run`               | If set, only log actions without processing.                  | `False` (not set)   |
+| `--verbose`               | If set, verbose output enabled.                               | `False` (not set)   |
 
 <p align="center">
   <i>
