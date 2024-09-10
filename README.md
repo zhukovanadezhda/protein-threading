@@ -81,7 +81,8 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 
 ## Examples
 
-### Example 1: Small proteins <30 amino acids
+### Example 0: Small proteins (<30 amino acids) 
+**Estimated execution time: Less than 10 minutes**
 
 #### Input
 
@@ -165,7 +166,8 @@ python src/main.py --gap_score 0.9 --output_file results/example0_result.csv
 
 
 
-### Example 1: Small proteins <50 amino acids (time of execution: <5 min)
+### Example 1: Small proteins (<50 amino acids)  
+**Estimated execution time: Less than 35 minutes**
 
 #### Input
 
@@ -262,7 +264,8 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap
 </p>
 
 
-### Example 2: Middle-size proteins 70-120 amino acids (time of execution: >10h)
+### Example 2: Medium-sized proteins (70-120 amino acids)  
+**Estimated execution time: Over 12 hours**
 
 #### Input
 
@@ -307,22 +310,22 @@ python src/main.py --output_file results/example2_result.csv
       </tr>
       <tr>
         <td><p align="center">1E68.fasta <br> <img src="doc/assets/1e68.png" align="center" alt="1e68" width="70"></p></td>
-        <td><p align="center"><i>-10761.13</i></p></td>
-        <td><p align="center">-12968.85</p></td>
-        <td><p align="center">-13892.91</p></td>
-        <td><p align="center">-13937.92</p></td>
-        <td><p align="center">-12498.24</p></td>
-        <td><p align="center"><b>-17037.28</b></p></td>
-        <td><p align="center">-16702.83</p></td>
+        <td><p align="center"><i><b>-490.53</b></i></p></td>
+        <td><p align="center">-466.0</p></td>
+        <td><p align="center">-472.0</p></td>
+        <td><p align="center">-480.22</p></td>
+        <td><p align="center">-412.13</p></td>
+        <td><p align="center">-316.45</p></td>
+        <td><p align="center">-312.76</p></td>
       </tr>
       <td><p align="center">3E8V.fasta <br> <img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="70"></p></td>
-        <td><p align="center"></p>-14196.34</p></td>
-        <td><p align="center"></p>-16873.19</p></td>
-        <td><p align="center"></p>-18082.49</p></td>
-        <td><p align="center"></p><i>-18373.36<i></p></td>
-        <td><p align="center"></p>-16229.49</p></td>
-        <td><p align="center"></p><b>-21858.97</b></p></td>
-        <td><p align="center"></p>-21617.74</p></td>
+        <td><p align="center"></p></p></td>
+        <td><p align="center"></p></p></td>
+        <td><p align="center"></p></p></td>
+        <td><p align="center"></p><i><i></p></td>
+        <td><p align="center"></p></p></td>
+        <td><p align="center"></p><b></b></p></td>
+        <td><p align="center"></p></p></td>
       </tr>
       <tr>
         <td></td>
