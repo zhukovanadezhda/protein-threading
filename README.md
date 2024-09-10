@@ -68,6 +68,7 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 | `-h`                      | Show a help message and exit.                                 |                   |
 | `--sequences`             | Comma-separated list of sequence filenames (`.fasta` format). | All files from `SEQUENCES_DIR` from `src/config.py`. |
 | `--templates`             | Comma-separated list of template filenames (`.pdb` format).   | All files from `TEMPLATES_DIR` from `src/config.py`. |
+| `--gap_score`             | The gap penalty.                                              | `0`|
 | `--output_file`           | Name of the output CSV file.                                  | `results/energy_scores.csv`|
 | `--jobs`                  | Number of parallel jobs to run.                               | All cores         |
 | `--dry_run`               | If set, only log actions without processing.                  | False (not set)   |
@@ -258,7 +259,7 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap
 
 <p align="center">
   <i>
-    Table 2: Summary of results from the first example.<br>
+    Table 3: Summary of results from the first example.<br>
     "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
   </i>
 </p>
@@ -343,7 +344,7 @@ python src/main.py --output_file results/example2_result.csv
           
 <p align="center">
   <i>
-    Table 3: Summary of results from the second example.<br>
+    Table 4: Summary of results from the second example.<br>
     "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
   </i>
 </p>
