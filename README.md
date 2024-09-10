@@ -185,7 +185,8 @@ python src/main.py --gap_score 0.9 --output_file results/example0_result.csv
 > ```
 
 ```python
-python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap_score 0.2 --output_file results/example1_result.csv
+python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta \
+                   --gap_score 0.2 --output_file results/example1_result.csv
 ```
 
 #### Results
@@ -271,7 +272,7 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap
 
 
 ### Example 2: Medium-sized proteins (70-120 amino acids)  
-**Estimated execution time: Over 12 hours**
+**Estimated execution time: Over 16 hours**
 
 #### Input
 
@@ -284,7 +285,7 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap
 
 
 ```python
-python src/main.py --output_file results/example2_result.csv
+python src/main.py --gap_score 0.1 --output_file results/example2_result.csv
 ```
 
 #### Results
@@ -325,13 +326,13 @@ python src/main.py --output_file results/example2_result.csv
         <td><p align="center">-312.76</p></td>
       </tr>
       <td><p align="center">3E8V.fasta <br> <img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="70"></p></td>
-        <td><p align="center"></p></p></td>
-        <td><p align="center"></p></p></td>
-        <td><p align="center"></p></p></td>
-        <td><p align="center"></p><i><i></p></td>
-        <td><p align="center"></p></p></td>
-        <td><p align="center"></p><b></b></p></td>
-        <td><p align="center"></p></p></td>
+        <td><p align="center">-426.15</p></td>
+        <td><p align="center">-479.47</p></td>
+        <td><p align="center">-527.57</p></td>
+        <td><p align="center"><i><b>-558.23</b></i></p></td>
+        <td><p align="center">-493.82</p></td>
+        <td><p align="center">-415.08</p></td>
+        <td><p align="center">-407.47</p></td>
       </tr>
       <tr>
         <td></td>
