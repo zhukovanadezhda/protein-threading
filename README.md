@@ -87,91 +87,6 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 
 ## Examples
 
-### Example 0: Small proteins (<30 amino acids) 
-**Estimated execution time: Less than 10 minutes**
-
-#### Input
-
-> `src/config.py` :
-> ```python
-> # Directory paths
-> TEMPLATES_DIR = 'data/example0/structures/'
-> SEQUENCES_DIR = 'data/example0/sequences/'
-> ```
-
-```python
-python src/main.py --gap_score 0.9 --output_file results/example0_result.csv
-```
-
-#### Results
-
-<div style="text-align:center;">
-  <table align="center">
-    <thead>
-      <tr>
-        <th style="text-align:center;"> </th>
-        <th style="text-align:center; width: 150px;">1vgja.pdb</th>
-        <th style="text-align:center; width: 150px;">2ahda.pdb</th>
-        <th style="text-align:center; width: 150px;">2ii2a.pdb</th>
-        <th style="text-align:center; width: 150px;">3dyna.pdb</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td> </td>
-        <td><p align="center">28 aa</p></td>
-        <td><p align="center">24 aa</p></td>
-        <td><p align="center">26 aa</p></td>
-        <td><p align="center">21 aa</p></td>
-      </tr>
-      <tr>
-        <td><p align="center">1VGJA.fasta</p><img src="doc/assets/1vgja.png" alt="1VGJA" width="70"></td>
-        <td><p align="center"><i><b>-58.27</b></i></p></td>
-        <td><p align="center">16.93</p></td>
-        <td><p align="center">-54.8</p></td>
-        <td><p align="center">37.12</p></td>
-      </tr>
-      <tr>
-        <td><p align="center">2AHDA.fasta</p><img src="doc/assets/2ahda.png" alt="2AHDA" width="70"></td>
-        <td><p align="center">-22.88</p></td>
-        <td><p align="center"><i>-61.82</p></i></td>
-        <td><p align="center"><i><b>-75.0</b></i></p></td>
-        <td><p align="center">-6.22</p></td>
-      </tr>
-      <tr>
-        <td><p align="center">2II2A.fasta</p><img src="doc/assets/2ii2a.png" alt="2II2A" width="70"></td>
-        <td><p align="center">41.07</p></td>
-        <td><p align="center">-15.72</p></td>
-        <td><p align="center"><i>-8.85</i></p></td>
-        <td><p align="center"><b>-74.9</b></p></td>
-      </tr>
-      <tr>
-        <td><p align="center">3DYNA.fasta</p><img src="doc/assets/3dyna.png" alt="3DYNA" width="70"></td>
-        <td><p align="center">34.91</p></td>
-        <td><p align="center">-30.13</p></td>
-        <td><p align="center">-27.43</p></td>
-        <td><p align="center"><b><i>-62.26</b></i></p></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><img src="doc/assets/1vgja.png" align="center" alt="1VGJA" width="70"></td>
-        <td><img src="doc/assets/2ahda.png" align="center" alt="2AHDA" width="70"></td>
-        <td><img src="doc/assets/2ii2a.png" align="center" alt="2II2A" width="70"></td>
-        <td><img src="doc/assets/3dyna.png" align="center" alt="3DYNA" width="70"></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<p align="center">
-  <i>
-    Table 2: Summary of results from the zero example.<br>
-    "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
-  </i>
-</p>
-
-
-
 ### Example 1: Small proteins (<50 amino acids)  
 **Estimated execution time: Less than 35 minutes**
 
@@ -265,7 +180,7 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta \
 
 <p align="center">
   <i>
-    Table 3: Summary of results from the first example.<br>
+    Table 2: Summary of results from the first example.<br>
     "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
   </i>
 </p>
@@ -350,7 +265,7 @@ python src/main.py --gap_score 0.1 --output_file results/example2_result.csv
           
 <p align="center">
   <i>
-    Table 4: Summary of results from the second example.<br>
+    Table 3: Summary of results from the second example.<br>
     "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
   </i>
 </p>
