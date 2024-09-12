@@ -20,17 +20,19 @@ __date__ = "2024-09-06"
 __version__ = "1.2.0"
 
 import argparse
-from joblib import Parallel, delayed
-import os
-import pandas as pd
-import numpy as np
-from multiprocessing import cpu_count
 import logging
-from typing import Tuple
+from multiprocessing import cpu_count
+import os
+
+from joblib import Parallel, delayed
+import numpy as np
+import pandas as pd
+
 from config import DOPE_URL, SEQUENCES_DIR, TEMPLATES_DIR
 from load_data import (load_dope, read_fasta, pdb_to_c_alpha_coordinates,
                        coordinates_to_distance_matrix)
 from process_matrix import fill_low_level_matrices, fill_high_level_matrix
+
 
 # Setup logging configuration
 logging.basicConfig(
@@ -66,9 +68,9 @@ def load_sequences(sequences_dir: str) -> list:
     return os.listdir(sequences_dir)
 
 
-def process_template(template: str, templates_dir: str, 
-                     sequence: str, df_dope: pd.DataFrame, 
-                     gap_score: float, print_alignments: bool, 
+def process_template(template: str, templates_dir: str,
+                     sequence: str, df_dope: pd.DataFrame,
+                     gap_score: float, print_alignments: bool,
                      jobs: int, verbose: bool = False) -> float:
     """
     Process a single template by calculating the energy score for a sequence.
@@ -98,9 +100,11 @@ def process_template(template: str, templates_dir: str,
         m = len(sequence)
         logging.info(f"Processing template {template} with {n} residues.")
 
-        low_level_matrices = fill_low_level_matrices(
-            n, m, sequence, dist_matrix, gap_score, df_dope
-            )
+        low_level_matrices = fill_low_level_matrices(n=n, m=m, 
+                                                     sequence=sequence,
+                                                     dist_matrix=dist_matrix,
+                                                     gap_score=gap_score,
+                                                     df_dope=df_dope)
         high_level_matrix = fill_high_level_matrix(low_level_matrices,
                                                    gap_score, sequence, 
                                                    print_alignments)
@@ -122,7 +126,8 @@ def process_template_wrapper(template: str, sequence: str, templates_dir: str,
     Wrapper function for process_template to use with multiprocessing.
     """
     return process_template(
-        template, templates_dir, sequence, df_dope, gap_score, print_alignments, jobs, verbose
+        template, templates_dir, sequence, df_dope, gap_score, 
+        print_alignments, jobs, verbose
     )
 
 
@@ -168,13 +173,14 @@ def process_sequences_and_templates(sequences: list, templates: list,
         # Parallelize the template processing
         results = Parallel(n_jobs=jobs)(
             delayed(process_template_wrapper)(
-                template, sequence, templates_dir, df_dope, gap_score, print_alignments, jobs, verbose
+                template, sequence, templates_dir, df_dope, gap_score, 
+                print_alignments, jobs, verbose
             ) for template in templates
         )
 
         # Store the energy scores for each template
         for template, energy_score in zip(templates, results):
-             energy_scores[sequence_file][template] = energy_score
+            energy_scores[sequence_file][template] = energy_score
 
     return pd.DataFrame(energy_scores).T
 

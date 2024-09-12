@@ -35,6 +35,7 @@ __version__ = "1.0.0"
 import logging
 import numpy as np
 import pandas as pd
+from joblib import Parallel, delayed
 from process_dope import find_dope_score
 
 # Setup logging configuration if not already configured
@@ -120,22 +121,17 @@ def fill_matrix_region(low_level_matrix: np.ndarray, k_range: range,
 
             # Find the minimum value from neighboring cells
             low_level_matrix[k, l] = np.nanmin([
-                round(low_level_matrix[k-1, l] + gap_score, 2),  # From above
-                round(low_level_matrix[k, l-1] + gap_score, 2),  # From left
-                round(low_level_matrix[k-1, l-1] + dope, 2)      # From diagonal
+                round(low_level_matrix[k-1, l] + gap_score, 2), # From above
+                round(low_level_matrix[k, l-1] + gap_score, 2), # From left
+                round(low_level_matrix[k-1, l-1] + dope, 2)     # From diagonal
             ])
             logging.debug(f"Set low_level_matrix[{k}, {l}] "
                           f"= {low_level_matrix[k, l]}")
 
 
-def fill_low_level_matrices(
-    n: int, 
-    m: int, 
-    sequence: list, 
-    dist_matrix: np.ndarray, 
-    gap_score: float,
-    df_dope: pd.DataFrame
-) -> np.ndarray:
+def fill_low_level_matrices(n: int, m: int, sequence: list, 
+                            dist_matrix: np.ndarray, gap_score: float,
+                            df_dope: pd.DataFrame) -> np.ndarray:
     """
     Fill low-level matrices by setting boundary conditions and filling regions.
     
@@ -192,8 +188,9 @@ def fill_low_level_matrices(
     return low_level_matrices
 
 
-def fill_high_level_matrix(low_level_matrices: np.ndarray, gap_score: float,
-                           sequence: str, print_alignments: bool) -> np.ndarray:
+def fill_high_level_matrix(low_level_matrices: np.ndarray, 
+                           gap_score: float, sequence: str, 
+                           print_alignments: bool) -> np.ndarray:
     """
     Fill the high-level matrix using the low-level matrices.
 
@@ -213,16 +210,22 @@ def fill_high_level_matrix(low_level_matrices: np.ndarray, gap_score: float,
     high_level_matrix[0, 0] = low_level_matrices[0, 0][-1, -1]
     
     for i in range(1, n):
-        high_level_matrix[i, 0] = round(high_level_matrix[i-1, 0] + gap_score, 2)
+        high_level_matrix[i, 0] = round(
+            high_level_matrix[i-1, 0] + gap_score, 2
+            )
     for j in range(1, m):
-        high_level_matrix[0, j] = round(high_level_matrix[0, j-1] + gap_score, 2)
+        high_level_matrix[0, j] = round(
+            high_level_matrix[0, j-1] + gap_score, 2
+            )
 
     for i in range(1, n):
         for j in range(1, m):
             high_level_matrix[i, j] = np.nanmin([
                 round(high_level_matrix[i-1, j] + gap_score, 2), 
                 round(high_level_matrix[i, j-1] + gap_score, 2), 
-                round(high_level_matrix[i-1, j-1] + low_level_matrices[i, j][-1, -1], 2)
+                round(
+                    high_level_matrix[i-1, j-1] + low_level_matrices[i, j][-1, -1], 2
+                    )
                 ])
             
     # Print alignment
@@ -235,8 +238,9 @@ def fill_high_level_matrix(low_level_matrices: np.ndarray, gap_score: float,
 
 def traceback_alignment(low_level_matrices: np.ndarray,
                         high_level_matrix: np.ndarray, gap_score: float, 
-                        sequence: str, n: int, m: int, max_line_length: int = 60) -> tuple:
-    """Traceback the alignment and print the aligned sequences with line breaks every 60 characters.
+                        sequence: str, n: int, m: int, 
+                        max_line_length: int = 60) -> tuple:
+    """Traceback the alignment and print the aligned sequences.
 
     Args:
         low_level_matrices (np.ndarray): Matrix of low-level matrices.
@@ -245,7 +249,7 @@ def traceback_alignment(low_level_matrices: np.ndarray,
         sequence (str): Sequence to align.
         n (int): Length of the structure.
         m (int): Length of the sequence.
-        max_line_length (int): Maximum character length per printed line (default: 60).
+        max_line_length (int): Maximum character length per line (default: 60).
 
     Returns:
         tuple: Strings with the aligned indices, residues, and connectors.
@@ -306,16 +310,35 @@ def traceback_alignment(low_level_matrices: np.ndarray,
     
     # Add line breaks every 60 characters
     aligned_indices_lines = [aligned_indices_str[i:i+max_line_length] 
-                                     for i in range(0, len(aligned_indices_str), max_line_length)]
+                            for i in range(
+                                0, 
+                                len(aligned_indices_str), 
+                                max_line_length
+                                )
+                            ]
     alignment_connectors_lines = [alignment_connectors_str[i:i+max_line_length] 
-                                          for i in range(0, len(alignment_connectors_str), max_line_length)]
+                                          for i in range(
+                                              0, 
+                                              len(alignment_connectors_str), 
+                                              max_line_length
+                                              )
+                                 ]
     aligned_residues_lines = [aligned_residues_str[i:i+max_line_length] 
-                                      for i in range(0, len(aligned_residues_str), max_line_length)]
+                                      for i in range(
+                                          0, 
+                                          len(aligned_residues_str), 
+                                          max_line_length
+                                          )
+                             ]
     
     alignment_str = ''
     
     # Combine them in alternating order (indices -> connectors -> residues)
-    for idx_line, con_line, res_line in zip(aligned_indices_lines, alignment_connectors_lines, aligned_residues_lines):
+    for idx_line, con_line, res_line in zip(
+                                            aligned_indices_lines, 
+                                            alignment_connectors_lines, 
+                                            aligned_residues_lines
+                                            ):
         alignment_str += idx_line + '\n' + con_line + '\n' + res_line + '\n'
         
     print(alignment_str[:-1])
