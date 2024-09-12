@@ -1,11 +1,7 @@
 # Protein Structure Prediction Using Threading
 
-<a target="_blank" href="https://colab.research.google.com/drive/11TE64UVkWxCVp6GFs4Bb60iflO0ihp82?usp=sharing">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>
 
-
-This project focuses on protein structure prediction using the [threading (fold recognition) method](https://en.wikipedia.org/wiki/Threading_(protein_sequence)). Threading is a computational approach that aligns a protein sequence with known template structures to predict its 3D structure, even when sequence similarity is low. This method identifies candidate templates by considering structural similarities, such as predicted secondary structures and solvent accessibility. By mapping the sequence onto structurally similar templates, threading can accurately predict protein folds, making it a valuable tool in bioinformatics, medicine, and biotechnology.
+This project focuses on protein structure prediction using the [threading (fold recognition) method](https://en.wikipedia.org/wiki/Threading_(protein_sequence)). Threading is a computational approach that aligns a protein sequence with known template structures to predict its 3D structure, even when sequence similarity is low. This method identifies candidate templates by considering structural similarities, such as predicted secondary structures and solvent accessibility. By mapping the sequence onto structurally similar templates, threading can accurately predict protein folds, making it a valuable tool in bioinformatics, medicine, and biotechnology. The algorithm is inspired by David Jones's THREADER *(Computational Methods in Molecular Biology, Chapter 13, 1998)*.
 
 <p align="center">
   <img align="center" width="800px" 
@@ -77,7 +73,8 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 | `--output_file`           | Name of the output CSV file.                                  | `results/energy_scores.csv`|
 | `--jobs`                  | Number of parallel jobs to run.                               | All cores         |
 | `--dry_run`               | If set, only log actions without processing.                  | `False` (not set)   |
-| `--verbose`               | If set, verbose output enabled.                               | `False` (not set)   |
+| `--verbose`               | If set, verbose output is enabled.                            | `False` (not set)   |
+| `--print_alignments`      | If set, the alignments are printed.                           | `False` (not set)   |
 
 <p align="center">
   <i>
@@ -200,7 +197,7 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta \
 
 
 ```python
-python src/main.py --gap_score 0.1 --output_file results/example2_result.csv
+python src/main.py --sequences 1E68.fasta,3E8V.fasta --gap_score 0.1 --output_file results/example2_result.csv
 ```
 
 #### Results
