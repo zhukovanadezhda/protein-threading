@@ -1,6 +1,7 @@
 # Protein Structure Prediction Using Threading
 
-This project focuses on protein structure prediction using the [threading (fold recognition) method](https://en.wikipedia.org/wiki/Threading_(protein_sequence)). Threading is a computational approach that aligns a protein sequence with known template structures to predict its 3D structure, even when sequence similarity is low. This method identifies candidate templates by considering structural similarities, such as predicted secondary structures and solvent accessibility. By mapping the sequence onto structurally similar templates, threading can accurately predict protein folds, making it a valuable tool in bioinformatics, medicine, and biotechnology.
+
+This project focuses on protein structure prediction using the [threading (fold recognition) method](https://en.wikipedia.org/wiki/Threading_(protein_sequence)). Threading is a computational approach that aligns a protein sequence with known template structures to predict its 3D structure, even when sequence similarity is low. This method identifies candidate templates by considering structural similarities, such as predicted secondary structures and solvent accessibility. By mapping the sequence onto structurally similar templates, threading can accurately predict protein folds, making it a valuable tool in bioinformatics, medicine, and biotechnology. The algorithm is inspired by David Jones's THREADER *(Computational Methods in Molecular Biology, Chapter 13, 1998)*.
 
 <p align="center">
   <img align="center" width="800px" 
@@ -14,7 +15,7 @@ This project focuses on protein structure prediction using the [threading (fold 
 </p>
 
 
-## Installation
+## 🔄Installation
 
 ### Clone the repository
 
@@ -36,14 +37,14 @@ conda env create -f environment.yml
 conda activate protein-threading
 ```
 
-> **Note:** To deactivate an active environment, use:
+> 💡**Note:** To deactivate an active environment, use:
 > ```bash
 > conda deactivate
 > ```
 
-## Usage
+## 🧑‍💻️ Usage
 
-> **Note:** Before running the program, ensure the `src/config.py` file is properly configured to set up your working directories.  
+> 💡**Note:** Before running the program, ensure the `src/config.py` file is properly configured to set up your working directories.  
 > - **To run an example:** Select one of the provided example directories (e.g., `data/example1`).  
 > - **To use custom data:** Create your own directory (e.g., `data/your_dir`) with subdirectories for `sequences` and `structures`. Place your data in these folders and update the paths in `src/config.py`.
 >   
@@ -61,7 +62,7 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
                    [--jobs JOBS] [--dry_run] [--verbose]
 ```
 
-## Arguments
+## ⚙️Arguments
 
 | Argument                  | Description                                                   | Default           |
 |:-------------------------:|---------------------------------------------------------------|-------------------|
@@ -72,7 +73,8 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 | `--output_file`           | Name of the output CSV file.                                  | `results/energy_scores.csv`|
 | `--jobs`                  | Number of parallel jobs to run.                               | All cores         |
 | `--dry_run`               | If set, only log actions without processing.                  | `False` (not set)   |
-| `--verbose`               | If set, verbose output enabled.                               | `False` (not set)   |
+| `--verbose`               | If set, verbose output is enabled.                            | `False` (not set)   |
+| `--print_alignments`      | If set, the alignments are printed.                           | `False` (not set)   |
 
 <p align="center">
   <i>
@@ -80,94 +82,9 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
   </i>
 </p>
 
-## Examples
+## 🎁Examples
 
-### Example 0: Small proteins (<30 amino acids) 
-**Estimated execution time: Less than 10 minutes**
-
-#### Input
-
-> `src/config.py` :
-> ```python
-> # Directory paths
-> TEMPLATES_DIR = 'data/example0/structures/'
-> SEQUENCES_DIR = 'data/example0/sequences/'
-> ```
-
-```python
-python src/main.py --gap_score 0.9 --output_file results/example0_result.csv
-```
-
-#### Results
-
-<div style="text-align:center;">
-  <table align="center">
-    <thead>
-      <tr>
-        <th style="text-align:center;"> </th>
-        <th style="text-align:center; width: 150px;">1vgja.pdb</th>
-        <th style="text-align:center; width: 150px;">2ahda.pdb</th>
-        <th style="text-align:center; width: 150px;">2ii2a.pdb</th>
-        <th style="text-align:center; width: 150px;">3dyna.pdb</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td> </td>
-        <td><p align="center">28 aa</p></td>
-        <td><p align="center">24 aa</p></td>
-        <td><p align="center">26 aa</p></td>
-        <td><p align="center">21 aa</p></td>
-      </tr>
-      <tr>
-        <td><p align="center">1VGJA.fasta</p><img src="doc/assets/1vgja.png" alt="1VGJA" width="70"></td>
-        <td><p align="center"><i><b>-58.27</b></i></p></td>
-        <td><p align="center">16.93</p></td>
-        <td><p align="center">-54.8</p></td>
-        <td><p align="center">37.12</p></td>
-      </tr>
-      <tr>
-        <td><p align="center">2AHDA.fasta</p><img src="doc/assets/2ahda.png" alt="2AHDA" width="70"></td>
-        <td><p align="center">-22.88</p></td>
-        <td><p align="center"><i>-61.82</p></i></td>
-        <td><p align="center"><i><b>-75.0</b></i></p></td>
-        <td><p align="center">-6.22</p></td>
-      </tr>
-      <tr>
-        <td><p align="center">2II2A.fasta</p><img src="doc/assets/2ii2a.png" alt="2II2A" width="70"></td>
-        <td><p align="center">41.07</p></td>
-        <td><p align="center">-15.72</p></td>
-        <td><p align="center"><i>-8.85</i></p></td>
-        <td><p align="center"><b>-74.9</b></p></td>
-      </tr>
-      <tr>
-        <td><p align="center">3DYNA.fasta</p><img src="doc/assets/3dyna.png" alt="3DYNA" width="70"></td>
-        <td><p align="center">34.91</p></td>
-        <td><p align="center">-30.13</p></td>
-        <td><p align="center">-27.43</p></td>
-        <td><p align="center"><b><i>-62.26</b></i></p></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><img src="doc/assets/1vgja.png" align="center" alt="1VGJA" width="70"></td>
-        <td><img src="doc/assets/2ahda.png" align="center" alt="2AHDA" width="70"></td>
-        <td><img src="doc/assets/2ii2a.png" align="center" alt="2II2A" width="70"></td>
-        <td><img src="doc/assets/3dyna.png" align="center" alt="3DYNA" width="70"></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<p align="center">
-  <i>
-    Table 2: Summary of results from the zero example.<br>
-    "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
-  </i>
-</p>
-
-
-
-### Example 1: Small proteins (<50 amino acids)  
+### ☝️Example 1: Small proteins (<50 amino acids)  
 **Estimated execution time: Less than 35 minutes**
 
 #### Input
@@ -180,7 +97,8 @@ python src/main.py --gap_score 0.9 --output_file results/example0_result.csv
 > ```
 
 ```python
-python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap_score 0.2 --output_file results/example1_result.csv
+python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta \
+                   --gap_score 0.2 --output_file results/example1_result.csv
 ```
 
 #### Results
@@ -259,14 +177,14 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap
 
 <p align="center">
   <i>
-    Table 3: Summary of results from the first example.<br>
+    Table 2: Summary of results from the first example.<br>
     "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
   </i>
 </p>
 
 
-### Example 2: Medium-sized proteins (70-120 amino acids)  
-**Estimated execution time: Over 12 hours**
+### ✌️Example 2: Medium-sized proteins (70-120 amino acids)  
+**Estimated execution time: Over 16 hours**
 
 #### Input
 
@@ -279,7 +197,7 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap
 
 
 ```python
-python src/main.py --output_file results/example2_result.csv
+python src/main.py --sequences 1E68.fasta,3E8V.fasta --gap_score 0.1 --output_file results/example2_result.csv
 ```
 
 #### Results
@@ -320,13 +238,13 @@ python src/main.py --output_file results/example2_result.csv
         <td><p align="center">-312.76</p></td>
       </tr>
       <td><p align="center">3E8V.fasta <br> <img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="70"></p></td>
-        <td><p align="center"></p></p></td>
-        <td><p align="center"></p></p></td>
-        <td><p align="center"></p></p></td>
-        <td><p align="center"></p><i><i></p></td>
-        <td><p align="center"></p></p></td>
-        <td><p align="center"></p><b></b></p></td>
-        <td><p align="center"></p></p></td>
+        <td><p align="center">-426.15</p></td>
+        <td><p align="center">-479.47</p></td>
+        <td><p align="center">-527.57</p></td>
+        <td><p align="center"><i><b>-558.23</b></i></p></td>
+        <td><p align="center">-493.82</p></td>
+        <td><p align="center">-415.08</p></td>
+        <td><p align="center">-407.47</p></td>
       </tr>
       <tr>
         <td></td>
@@ -344,12 +262,16 @@ python src/main.py --output_file results/example2_result.csv
           
 <p align="center">
   <i>
-    Table 4: Summary of results from the second example.<br>
+    Table 3: Summary of results from the second example.<br>
     "aa" stands for amino acids; bold indicates the best score, italics indicate the correct match.
   </i>
 </p>
 
+## 🔗References
 
-## Contact
+JONES, D. Threader: protein sequence threading by double dynamic programming. *Computational Methods in Molecular Biology.* Elsevier, 1996. v. 32, cap. 13, p. 312–338
+
+
+## ✉️Contact
 
 For questions or issues, please open an issue on GitHub or contact [nadiajuckova@gmail.com](mailto:nadiajuckova@gmail.com).
