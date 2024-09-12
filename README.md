@@ -15,7 +15,7 @@ This project focuses on protein structure prediction using the [threading (fold 
 </p>
 
 
-## Installation
+## 🔄Installation
 
 ### Clone the repository
 
@@ -37,14 +37,14 @@ conda env create -f environment.yml
 conda activate protein-threading
 ```
 
-> **Note:** To deactivate an active environment, use:
+> 💡**Note:** To deactivate an active environment, use:
 > ```bash
 > conda deactivate
 > ```
 
-## Usage
+## 🧑‍💻️ Usage
 
-> **Note:** Before running the program, ensure the `src/config.py` file is properly configured to set up your working directories.  
+> 💡**Note:** Before running the program, ensure the `src/config.py` file is properly configured to set up your working directories.  
 > - **To run an example:** Select one of the provided example directories (e.g., `data/example1`).  
 > - **To use custom data:** Create your own directory (e.g., `data/your_dir`) with subdirectories for `sequences` and `structures`. Place your data in these folders and update the paths in `src/config.py`.
 >   
@@ -62,7 +62,7 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
                    [--jobs JOBS] [--dry_run] [--verbose]
 ```
 
-## Arguments
+## ⚙️Arguments
 
 | Argument                  | Description                                                   | Default           |
 |:-------------------------:|---------------------------------------------------------------|-------------------|
@@ -82,9 +82,9 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
   </i>
 </p>
 
-## Examples
+## 🎁Examples
 
-### Example 1: Small proteins (<50 amino acids)  
+### ☝️Example 1: Small proteins (<50 amino acids)  
 **Estimated execution time: Less than 35 minutes**
 
 #### Input
@@ -183,7 +183,7 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta \
 </p>
 
 
-### Example 2: Medium-sized proteins (70-120 amino acids)  
+### ✌️Example 2: Medium-sized proteins (70-120 amino acids)  
 **Estimated execution time: Over 16 hours**
 
 #### Input
@@ -268,6 +268,6 @@ python src/main.py --sequences 1E68.fasta,3E8V.fasta --gap_score 0.1 --output_fi
 </p>
 
 
-## Contact
+## ✉️Contact
 
 For questions or issues, please open an issue on GitHub or contact [nadiajuckova@gmail.com](mailto:nadiajuckova@gmail.com).
