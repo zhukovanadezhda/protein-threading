@@ -267,6 +267,10 @@ python src/main.py --sequences 1E68.fasta,3E8V.fasta --gap_score 0.1 --output_fi
   </i>
 </p>
 
+## 🔗References
+
+JONES, D. Threader: protein sequence threading by double dynamic programming. *Computational Methods in Molecular Biology.* Elsevier, 1996. v. 32, cap. 13, p. 312–338
+
 
 ## ✉️Contact
 
