@@ -103,11 +103,12 @@ def perform_shapiro_test(shuffled_energy_scores, seq_file):
                         f"(p-value = {p_value:.4f}).")
 
 
-def process_sequence(seq_file, original_seq, templates, df_dope, 
+def process_sequence(df, seq_file, original_seq, templates, df_dope, 
                      templates_dir, gap_score, n_shuffles):
     """Process a single sequence: shuffle, calculate energies, and z-scores.
 
     Args:
+        df (pandas.DataFrame): The DataFrame containing energy scores.
         seq_file (str): The sequence file name.
         original_seq (str): The original sequence.
         templates (list): The list of templates.
@@ -141,7 +142,7 @@ def process_sequence(seq_file, original_seq, templates, df_dope,
         perform_shapiro_test(shuffled_energy_scores, seq_file)
 
     # Retrieve original sequence energy scores
-    original_energy_scores = df_dope.loc[seq_file].values
+    original_energy_scores = df.loc[seq_file].values
 
     # Calculate z-scores
     shuffled_energy_scores_array = np.array(shuffled_energy_scores)
@@ -192,7 +193,7 @@ def main(input_csv, output_file, gap_score, n_shuffles):
     z_scores_df = pd.DataFrame(index=sequences, columns=templates)
 
     # Process each sequence and calculate z-scores
-    for seq_file in tqdm(sequences, desc="Processing sequences"):
+    for seq_file in tqdm(sequences[::-1], desc="Processing sequences"):
         fasta_path = os.path.join(SEQUENCES_DIR, seq_file)
         if not os.path.exists(fasta_path):
             logging.warning(f"FASTA file {fasta_path} not found, skipping.")
@@ -203,7 +204,7 @@ def main(input_csv, output_file, gap_score, n_shuffles):
 
         # Process the sequence
         z_scores = process_sequence(
-            seq_file, original_seq, templates, df_dope, 
+            df, seq_file, original_seq, templates, df_dope, 
             TEMPLATES_DIR, gap_score, n_shuffles
         )
 
