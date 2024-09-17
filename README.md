@@ -102,7 +102,7 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap
 ```
 
 #### Output
-```python
+```bash
 2024-09-17 08:10:16,722 - INFO - Loading DOPE score data...
 2024-09-17 08:11:47,306 - INFO - Processing sequences and templates...
 2024-09-17 08:11:47,306 - INFO - Processing sequence 5AWL.fasta, length: 10
