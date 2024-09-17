@@ -170,9 +170,9 @@ def main(input_csv, output_file, gap_score, n_shuffles):
     
     # Warn if n_shuffles is < 30
     if n_shuffles < 30:
-        logging.warning("Number of shuffles is less than 30. "
-                        "Shapiro-Wilk test will be performed to check for "
-                        "normality of the shuffled scores.")
+        logging.warning("The number of shuffles is less than 30. Shapiro-Wilk "
+                        "test will be performed to check for the normality of "
+                        "the shuffled scores.")
 
     # Read the input CSV
     try:
