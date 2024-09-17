@@ -285,6 +285,31 @@ python src/evaluate_significance.py --input_csv <path_to_input_csv> --output_fil
 ### Requirements:
 `input_csv` - the input csv file with calculated energy scores, the file should be in the format produced by the main script described above.
 
+### Example:
+
+#### Input 
+> `src/config.py` :
+> ```python
+> # Directory paths
+> TEMPLATES_DIR = 'data/example1/structures/'
+> SEQUENCES_DIR = 'data/example1/sequences/'
+> ```
+
+```python
+python src/evaluate_significance.py --input_csv results/example1_result.csv \
+                                    --output_file results/shuffle_example1.csv \
+                                    --n_shuffle 10 --gap_score 0.2
+```
+
+#### Output
+
+```bash
+WARNING - Number of shuffles is less than 30. Shapiro-Wilk test will be performed to check for normality of the shuffled scores.
+WARNING - The distribution of shuffled energy scores for sequence 5AWL.fasta is not normally distributed (p-value = 0.0000).
+...
+```
+
+#### Result
 
 
 ## 🔗References
