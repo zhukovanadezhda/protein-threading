@@ -97,9 +97,28 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 > ```
 
 ```python
-python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta \
-                   --gap_score 0.2 --output_file results/example1_result.csv
+python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap_score 0.2 \
+                   --output_file results/example1_result.csv --print_alignments
 ```
+
+#### Output
+```python
+2024-09-17 08:10:16,722 - INFO - Loading DOPE score data...
+2024-09-17 08:11:47,306 - INFO - Processing sequences and templates...
+2024-09-17 08:11:47,306 - INFO - Processing sequence 5AWL.fasta, length: 10
+2024-09-17 08:11:50,621 - INFO - Processing template 5awl.pdb with 10 residues.
+2024-09-17 08:11:50,444 - INFO - Processing template 1le0.pdb with 12 residues.
+  0  1  2  3  4  5  6  7  8  9
+  |  |  |  |  |  |  |  |  |  |
+  Y  Y  Y  D  P  E  T  G  T  W
+2024-09-17 08:11:57,940 - INFO - Processed template 5awl.pdb. Energy score: -32.68
+  0  1  2  3  4  5  6  7  8  9 10 11
+  |  |  |  |  |  |  |  |     |  |   
+  Y  Y  Y  D  P  E  T  G  -  T  W  -
+2024-09-17 08:12:00,712 - INFO - Processed template 1le0.pdb. Energy score: -28.12
+...
+```
+
 
 #### Results
 
@@ -304,7 +323,7 @@ python src/evaluate_significance.py --input_csv results/example1_result.csv \
 #### Output
 
 ```bash
-WARNING - Number of shuffles is less than 30. Shapiro-Wilk test will be performed to check for normality of the shuffled scores.
+WARNING - The number of shuffles is less than 30. Shapiro-Wilk test will be performed to check for the normality of the shuffled scores.
 WARNING - The distribution of shuffled energy scores for sequence 5AWL.fasta is not normally distributed (p-value = 0.0000).
 ...
 ```
