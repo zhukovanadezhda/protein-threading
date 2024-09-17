@@ -82,7 +82,7 @@ def calculate_z_scores(original_scores, shuffled_scores):
     std_shuffled = np.std(shuffled_scores, axis=0)
     z_scores = (original_scores - mean_shuffled) / std_shuffled
     logging.debug("Z-scores calculated.")
-    return z_scores
+    return np.round(z_scores, 2)
 
 
 def perform_shapiro_test(shuffled_energy_scores, seq_file):
