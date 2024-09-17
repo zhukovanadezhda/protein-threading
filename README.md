@@ -330,6 +330,57 @@ WARNING - The distribution of shuffled energy scores for sequence 5AWL.fasta is 
 
 #### Result
 
+<div style="text-align:center;">
+  <table align="center">
+    <tr>
+      <th></th>
+      <th>1crn.pdb</th>
+      <th>1l2y.pdb</th>
+      <th>1le0.pdb</th>
+      <th>1le1.pdb</th>
+      <th>1vii.pdb</th>
+      <th>5awl.pdb</th>
+    </tr>
+    <tr>
+      <td>1CRN.fasta</td>
+      <td><br>-2.13</br></td>
+      <td>0.68</td>
+      <td>0.28</td>
+      <td>-0.91</td>
+      <td>1.22</td>
+      <td>-0.39</td>
+    </tr>
+    <tr>
+      <td>1L2Y.fasta</td>
+      <td>1.12</td>
+      <td><br>-2.49</br></td>
+      <td>2.96</td>
+      <td>2.62</td>
+      <td>1.69</td>
+      <td>1.66</td>
+    </tr>
+    <tr>
+      <td>1VII.fasta</td>
+      <td>-0.16</td>
+      <td>0.18</td>
+      <td>-1.05</td>
+      <td>-1.40</td>
+      <td>-1.48</td>
+      <td><br>-2.71</br></td>
+    </tr>
+    <tr>
+      <td>5AWL.fasta</td>
+      <td>-0.97</td>
+      <td>-0.16</td>
+      <td>-1.32</td>
+      <td>-1.53</td>
+      <td>-1.19</td>
+      <td>-1.56</td>
+    </tr>
+  </table>
+</div>
+
+> ⚠️ **Warning:** The z-scores may not be interpretable as the shuffled energy scores are not normally distributed. This is merely an example. To perform a meaningful significance evaluation, increase the number of shuffles.
 
 ## 🔗References
 
