@@ -97,9 +97,28 @@ python src/main.py [-h] [--sequences SEQUENCES] [--templates TEMPLATES] [--outpu
 > ```
 
 ```python
-python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta \
-                   --gap_score 0.2 --output_file results/example1_result.csv
+python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap_score 0.2 \
+                   --output_file results/example1_result.csv --print_alignments
 ```
+
+#### Output
+```bash
+2024-09-17 08:10:16,722 - INFO - Loading DOPE score data...
+2024-09-17 08:11:47,306 - INFO - Processing sequences and templates...
+2024-09-17 08:11:47,306 - INFO - Processing sequence 5AWL.fasta, length: 10
+2024-09-17 08:11:50,621 - INFO - Processing template 5awl.pdb with 10 residues.
+2024-09-17 08:11:50,444 - INFO - Processing template 1le0.pdb with 12 residues.
+  0  1  2  3  4  5  6  7  8  9
+  |  |  |  |  |  |  |  |  |  |
+  Y  Y  Y  D  P  E  T  G  T  W
+2024-09-17 08:11:57,940 - INFO - Processed template 5awl.pdb. Energy score: -32.68
+  0  1  2  3  4  5  6  7  8  9 10 11
+  |  |  |  |  |  |  |  |     |  |   
+  Y  Y  Y  D  P  E  T  G  -  T  W  -
+2024-09-17 08:12:00,712 - INFO - Processed template 1le0.pdb. Energy score: -28.12
+...
+```
+
 
 #### Results
 
@@ -108,12 +127,12 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta \
     <thead>
       <tr>
         <th style="text-align:center;"> </th>
-        <th style="text-align:center; width: 150px;">1crn.pdb</th>
-        <th style="text-align:center; width: 150px;">1l2y.pdb</th>
-        <th style="text-align:center; width: 150px;">1le0.pdb</th>
-        <th style="text-align:center; width: 150px;">1le1.pdb</th>
-        <th style="text-align:center; width: 150px;">1vii.pdb</th>
-        <th style="text-align:center; width: 150px;">5awl.pdb</th>
+        <th style="text-align:center; width: 150px;">1crn.pdb <br> <img src="doc/assets/1crn.png" align="center" alt="1crn" width="70"></th>
+        <th style="text-align:center; width: 150px;">1l2y.pdb <br> <img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="70"></th>
+        <th style="text-align:center; width: 150px;">1le0.pdb <br> <img src="doc/assets/1le0.png" align="center" alt="1le0" width="70"></th>
+        <th style="text-align:center; width: 150px;">1le1.pdb <br> <img src="doc/assets/1le1.png" align="center" alt="1le1" width="70"></th>
+        <th style="text-align:center; width: 150px;">1vii.pdb <br> <img src="doc/assets/1vii.png" align="center" alt="1vii" width="70"></th>
+        <th style="text-align:center; width: 150px;">5awl.pdb <br> <img src="doc/assets/5awl.png" align="center" alt="5awl" width="70"></th>
       </tr>
     </thead>
     <tbody>
@@ -162,15 +181,6 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta \
         <td><p align="center">3.62</p></td>
         <td><p align="center"><b><i>-32.68</i></b></p></td>
       </tr>
-      <tr>
-        <td></td>
-        <td><img src="doc/assets/1crn.png" align="center" alt="1crn" width="70"></td>
-        <td><img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="70"></td>
-        <td><img src="doc/assets/1le0.png" align="center" alt="1le0" width="70"></td>
-        <td><img src="doc/assets/1le1.png" align="center" alt="1le1" width="70"></td>
-        <td><img src="doc/assets/1vii.png" align="center" alt="1vii" width="70"></td>
-        <td><img src="doc/assets/5awl.png" align="center" alt="5awl" width="70"></td>
-      </tr>
     </tbody>
   </table>
 </div>
@@ -207,13 +217,13 @@ python src/main.py --sequences 1E68.fasta,3E8V.fasta --gap_score 0.1 --output_fi
     <thead>
       <tr>
         <th style="text-align:center;"> </th>
-        <th style="text-align:center; width: 150px;">1e68.pdb</th>
-        <th style="text-align:center; width: 150px;">1ubq.pdb</th>
-        <th style="text-align:center; width: 150px;">3zow.pdb</th>
-        <th style="text-align:center; width: 150px;">3e8v.pdb</th>
-        <th style="text-align:center; width: 150px;">1tit.pdb</th>
-        <th style="text-align:center; width: 150px;">1tvd.pdb</th>
-        <th style="text-align:center; width: 150px;">3zbv.pdb</th>
+        <th style="text-align:center; width: 150px;">1e68.pdb <br> <img src="doc/assets/1e68.png" align="center" alt="1e68" width="70"></th>
+        <th style="text-align:center; width: 150px;">1ubq.pdb <br> <img src="doc/assets/1ubq.png" align="center" alt="1ubq" width="70"></th>
+        <th style="text-align:center; width: 150px;">3zow.pdb <br> <img src="doc/assets/3zow.png" align="center" alt="3zow" width="70"></th>
+        <th style="text-align:center; width: 150px;">3e8v.pdb <br> <img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="70"></th>
+        <th style="text-align:center; width: 150px;">1tit.pdb <br> <img src="doc/assets/1tit.png" align="center" alt="1tit" width="70"></th>
+        <th style="text-align:center; width: 150px;">1tvd.pdb <br> <img src="doc/assets/1tvd.png" align="center" alt="1tvd" width="70"></th>
+        <th style="text-align:center; width: 150px;">3zbv.pdb <br> <img src="doc/assets/3zbv.png" align="center" alt="3zbv" width="70"></th>
       </tr>
     </thead>
     <tbody>
@@ -246,16 +256,6 @@ python src/main.py --sequences 1E68.fasta,3E8V.fasta --gap_score 0.1 --output_fi
         <td><p align="center">-415.08</p></td>
         <td><p align="center">-407.47</p></td>
       </tr>
-      <tr>
-        <td></td>
-        <td><img src="doc/assets/1e68.png" align="center" alt="1e68" width="70"></td>
-        <td><img src="doc/assets/1ubq.png" align="center" alt="1ubq" width="70"></td>
-        <td><img src="doc/assets/3zow.png" align="center" alt="3zow" width="70"></td>
-        <td><img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="70"></td>
-        <td><img src="doc/assets/1tit.png" align="center" alt="1tit" width="70"></td>
-        <td><img src="doc/assets/1tvd.png" align="center" alt="1tvd" width="70"></td>
-        <td><img src="doc/assets/3zbv.png" align="center" alt="3zbv" width="70"></td>
-      </tr>
     </tbody>
   </table>
 </div>
@@ -285,7 +285,83 @@ python src/evaluate_significance.py --input_csv <path_to_input_csv> --output_fil
 ### Requirements:
 `input_csv` - the input csv file with calculated energy scores, the file should be in the format produced by the main script described above.
 
+### Example:
 
+#### Input 
+> `src/config.py` :
+> ```python
+> # Directory paths
+> TEMPLATES_DIR = 'data/example1/structures/'
+> SEQUENCES_DIR = 'data/example1/sequences/'
+> ```
+
+```python
+python src/evaluate_significance.py --input_csv results/example1_result.csv \
+                                    --output_file results/shuffle_example1.csv \
+                                    --n_shuffle 10 --gap_score 0.2
+```
+
+#### Output
+
+```bash
+WARNING - The number of shuffles is less than 30. Shapiro-Wilk test will be performed to check for the normality of the shuffled scores.
+WARNING - The distribution of shuffled energy scores for sequence 5AWL.fasta is not normally distributed (p-value = 0.0000).
+...
+```
+
+#### Result
+
+<div style="text-align:center;">
+  <table align="center">
+    <tr>
+      <th></th>
+      <th><p align="center"><br>1crn.pdb</br></p></th>
+      <th><p align="center"><br>1l2y.pdb</br></p></th>
+      <th><p align="center"><br>1le0.pdb</br></p></th>
+      <th><p align="center"><br>1le1.pdb</br></p></th>
+      <th><p align="center"><br>1vii.pdb</br></p></th>
+      <th><p align="center"><br>5awl.pdb</br></p></th>
+    </tr>
+    <tr>
+      <td><p align="center"><br>1CRN.fasta</br></p></td>
+      <td><p align="center"><br>-2.13</br></p></td>
+      <td><p align="center">0.68</p></td>
+      <td><p align="center">0.28</p></td>
+      <td><p align="center">-0.91</p></td>
+      <td><p align="center">1.22</p></td>
+      <td><p align="center">-0.39</p></td>
+    </tr>
+    <tr>
+      <td><p align="center"><br>1L2Y.fasta</br></p></td>
+      <td><p align="center">1.12</p></td>
+      <td><p align="center"><br>-2.49</br></p></td>
+      <td><p align="center">2.96</p></td>
+      <td><p align="center">2.62</p></td>
+      <td><p align="center">1.69</p></td>
+      <td><p align="center">1.66</p></td>
+    </tr>
+    <tr>
+      <td><p align="center"><br>1VII.fasta</br></td>
+      <td><p align="center">-0.16</p></td>
+      <td><p align="center">0.18</p></td>
+      <td><p align="center">-1.05</p></td>
+      <td><p align="center">-1.40</p></td>
+      <td><p align="center">-1.48</p></td>
+      <td><p align="center"><br>-2.71</br></p></td>
+    </tr>
+    <tr>
+      <td><p align="center"><br>5AWL.fasta</br></td>
+      <td><p align="center">-0.97</p></td>
+      <td><p align="center">-0.16</p></td>
+      <td><p align="center">-1.32</p></td>
+      <td><p align="center">-1.53</p></td>
+      <td><p align="center">-1.19</p></td>
+      <td><p align="center">-1.56</p></td>
+    </tr>
+  </table>
+</div>
+
+> ⚠️ **Warning:** The z-scores may not be interpretable as the shuffled energy scores are not normally distributed. This is merely an example. To perform a meaningful significance evaluation, increase the number of shuffles.
 
 ## 🔗References
 
