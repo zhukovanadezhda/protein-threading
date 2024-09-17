@@ -127,12 +127,12 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap
     <thead>
       <tr>
         <th style="text-align:center;"> </th>
-        <th style="text-align:center; width: 150px;">1crn.pdb</th>
-        <th style="text-align:center; width: 150px;">1l2y.pdb</th>
-        <th style="text-align:center; width: 150px;">1le0.pdb</th>
-        <th style="text-align:center; width: 150px;">1le1.pdb</th>
-        <th style="text-align:center; width: 150px;">1vii.pdb</th>
-        <th style="text-align:center; width: 150px;">5awl.pdb</th>
+        <th style="text-align:center; width: 150px;">1crn.pdb <br> <img src="doc/assets/1crn.png" align="center" alt="1crn" width="70"></th>
+        <th style="text-align:center; width: 150px;">1l2y.pdb <br> <img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="70"></th>
+        <th style="text-align:center; width: 150px;">1le0.pdb <br> <img src="doc/assets/1le0.png" align="center" alt="1le0" width="70"></th>
+        <th style="text-align:center; width: 150px;">1le1.pdb <br> <img src="doc/assets/1le1.png" align="center" alt="1le1" width="70"></th>
+        <th style="text-align:center; width: 150px;">1vii.pdb <br> <img src="doc/assets/1vii.png" align="center" alt="1vii" width="70"></th>
+        <th style="text-align:center; width: 150px;">5awl.pdb <br> <img src="doc/assets/5awl.png" align="center" alt="5awl" width="70"></th>
       </tr>
     </thead>
     <tbody>
@@ -181,15 +181,6 @@ python src/main.py --sequences 1CRN.fasta,1L2Y.fasta,1VII.fasta,5AWL.fasta --gap
         <td><p align="center">3.62</p></td>
         <td><p align="center"><b><i>-32.68</i></b></p></td>
       </tr>
-      <tr>
-        <td></td>
-        <td><img src="doc/assets/1crn.png" align="center" alt="1crn" width="70"></td>
-        <td><img src="doc/assets/1l2y.png" align="center" alt="1l2y" width="70"></td>
-        <td><img src="doc/assets/1le0.png" align="center" alt="1le0" width="70"></td>
-        <td><img src="doc/assets/1le1.png" align="center" alt="1le1" width="70"></td>
-        <td><img src="doc/assets/1vii.png" align="center" alt="1vii" width="70"></td>
-        <td><img src="doc/assets/5awl.png" align="center" alt="5awl" width="70"></td>
-      </tr>
     </tbody>
   </table>
 </div>
@@ -226,13 +217,13 @@ python src/main.py --sequences 1E68.fasta,3E8V.fasta --gap_score 0.1 --output_fi
     <thead>
       <tr>
         <th style="text-align:center;"> </th>
-        <th style="text-align:center; width: 150px;">1e68.pdb</th>
-        <th style="text-align:center; width: 150px;">1ubq.pdb</th>
-        <th style="text-align:center; width: 150px;">3zow.pdb</th>
-        <th style="text-align:center; width: 150px;">3e8v.pdb</th>
-        <th style="text-align:center; width: 150px;">1tit.pdb</th>
-        <th style="text-align:center; width: 150px;">1tvd.pdb</th>
-        <th style="text-align:center; width: 150px;">3zbv.pdb</th>
+        <th style="text-align:center; width: 150px;">1e68.pdb <br> <img src="doc/assets/1e68.png" align="center" alt="1e68" width="70"></th>
+        <th style="text-align:center; width: 150px;">1ubq.pdb <br> <img src="doc/assets/1ubq.png" align="center" alt="1ubq" width="70"></th>
+        <th style="text-align:center; width: 150px;">3zow.pdb <br> <img src="doc/assets/3zow.png" align="center" alt="3zow" width="70"></th>
+        <th style="text-align:center; width: 150px;">3e8v.pdb <br> <img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="70"></th>
+        <th style="text-align:center; width: 150px;">1tit.pdb <br> <img src="doc/assets/1tit.png" align="center" alt="1tit" width="70"></th>
+        <th style="text-align:center; width: 150px;">1tvd.pdb <br> <img src="doc/assets/1tvd.png" align="center" alt="1tvd" width="70"></th>
+        <th style="text-align:center; width: 150px;">3zbv.pdb <br> <img src="doc/assets/3zbv.png" align="center" alt="3zbv" width="70"></th>
       </tr>
     </thead>
     <tbody>
@@ -264,16 +255,6 @@ python src/main.py --sequences 1E68.fasta,3E8V.fasta --gap_score 0.1 --output_fi
         <td><p align="center">-493.82</p></td>
         <td><p align="center">-415.08</p></td>
         <td><p align="center">-407.47</p></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><img src="doc/assets/1e68.png" align="center" alt="1e68" width="70"></td>
-        <td><img src="doc/assets/1ubq.png" align="center" alt="1ubq" width="70"></td>
-        <td><img src="doc/assets/3zow.png" align="center" alt="3zow" width="70"></td>
-        <td><img src="doc/assets/3e8v.png" align="center" alt="3e8v" width="70"></td>
-        <td><img src="doc/assets/1tit.png" align="center" alt="1tit" width="70"></td>
-        <td><img src="doc/assets/1tvd.png" align="center" alt="1tvd" width="70"></td>
-        <td><img src="doc/assets/3zbv.png" align="center" alt="3zbv" width="70"></td>
       </tr>
     </tbody>
   </table>
@@ -334,48 +315,48 @@ WARNING - The distribution of shuffled energy scores for sequence 5AWL.fasta is 
   <table align="center">
     <tr>
       <th></th>
-      <th>1crn.pdb</th>
-      <th>1l2y.pdb</th>
-      <th>1le0.pdb</th>
-      <th>1le1.pdb</th>
-      <th>1vii.pdb</th>
-      <th>5awl.pdb</th>
+      <th><p align="center"><br>1crn.pdb</br></p></th>
+      <th><p align="center"><br>1l2y.pdb</br></p></th>
+      <th><p align="center"><br>1le0.pdb</br></p></th>
+      <th><p align="center"><br>1le1.pdb</br></p></th>
+      <th><p align="center"><br>1vii.pdb</br></p></th>
+      <th><p align="center"><br>5awl.pdb</br></p></th>
     </tr>
     <tr>
-      <td>1CRN.fasta</td>
-      <td><br>-2.13</br></td>
-      <td>0.68</td>
-      <td>0.28</td>
-      <td>-0.91</td>
-      <td>1.22</td>
-      <td>-0.39</td>
+      <td><p align="center"><br>1CRN.fasta</br></p></td>
+      <td><p align="center"><br>-2.13</br></p></td>
+      <td><p align="center">0.68</p></td>
+      <td><p align="center">0.28</p></td>
+      <td><p align="center">-0.91</p></td>
+      <td><p align="center">1.22</p></td>
+      <td><p align="center">-0.39</p></td>
     </tr>
     <tr>
-      <td>1L2Y.fasta</td>
-      <td>1.12</td>
-      <td><br>-2.49</br></td>
-      <td>2.96</td>
-      <td>2.62</td>
-      <td>1.69</td>
-      <td>1.66</td>
+      <td><p align="center"><br>1L2Y.fasta</br></p></td>
+      <td><p align="center">1.12</p></td>
+      <td><p align="center"><br>-2.49</br></p></td>
+      <td><p align="center">2.96</p></td>
+      <td><p align="center">2.62</p></td>
+      <td><p align="center">1.69</p></td>
+      <td><p align="center">1.66</p></td>
     </tr>
     <tr>
-      <td>1VII.fasta</td>
-      <td>-0.16</td>
-      <td>0.18</td>
-      <td>-1.05</td>
-      <td>-1.40</td>
-      <td>-1.48</td>
-      <td><br>-2.71</br></td>
+      <td><p align="center"><br>1VII.fasta</br></td>
+      <td><p align="center">-0.16</p></td>
+      <td><p align="center">0.18</p></td>
+      <td><p align="center">-1.05</p></td>
+      <td><p align="center">-1.40</p></td>
+      <td><p align="center">-1.48</p></td>
+      <td><p align="center"><br>-2.71</br></p></td>
     </tr>
     <tr>
-      <td>5AWL.fasta</td>
-      <td>-0.97</td>
-      <td>-0.16</td>
-      <td>-1.32</td>
-      <td>-1.53</td>
-      <td>-1.19</td>
-      <td>-1.56</td>
+      <td><p align="center"><br>5AWL.fasta</br></td>
+      <td><p align="center">-0.97</p></td>
+      <td><p align="center">-0.16</p></td>
+      <td><p align="center">-1.32</p></td>
+      <td><p align="center">-1.53</p></td>
+      <td><p align="center">-1.19</p></td>
+      <td><p align="center">-1.56</p></td>
     </tr>
   </table>
 </div>
