@@ -363,6 +363,54 @@ WARNING - The distribution of shuffled energy scores for sequence 5AWL.fasta is 
 
 > ⚠️ **Warning:** The z-scores may not be interpretable as the shuffled energy scores are not normally distributed. This is merely an example. To perform a meaningful significance evaluation, increase the number of shuffles.
 
+## 🔧 Test Different Gap Penalties 
+
+To explore the impact of gap penalties on sequence-structure matching performance, you can use the `test_gaps.py` script. This script evaluates several gap penalty values to determine the optimal setting for the algorithm. Performance is assessed based on the following scoring system:
+
+- **Correct Structure Prediction**: If the algorithm accurately predicts the structure of the sequence, it earns **2 points**.
+- **Similar Structure Bonus**: If a similar structure appears among the top two predictions, the algorithm earns an additional **1 point**.
+- Thus, the maximum score for each sequence is **3 points**, and the final score is normalized by dividing it by the maximum possible score.
+
+### Usage Instructions
+
+> 💡 **Note**: Before running the program, ensure that `src/config.py` is properly configured. Set the paths for your working directories, the gap penalties to test, and similar structures to evaluate performance.
+>> Example modification to `src/config.py`:
+>>
+>> ```python
+>> # Gap penalties to test 
+>> gap_scores = [0, 0.1, 0.2] 
+>>
+>> # Proteins with similar structures 
+>> homolog_pairs = { 
+>>     'A.fasta': ['b.pdb'], 
+>>     'B.fasta': ['a.pdb', 'c.pdb'], 
+>>     'C.fasta': ['b.pdb'] 
+>> } 
+>> ``` 
+
+
+### Usage:
+
+```python
+python src/test_gaps.py [--program_path PROGRAM_PATH] [--output_dir OUTPUT_DIR] [--result_file RESULT_FILE]
+```
+
+### Example:
+
+#### Input 
+> `src/config.py` :
+> ```python
+> # Directory paths
+> TEMPLATES_DIR = 'data/example1/structures/'
+> SEQUENCES_DIR = 'data/example1/sequences/'
+> ```
+
+```python
+python src/test_gaps.py --output_dir results/gaps_test --result_file results/performance.csv
+```
+
+#### Result
+
 ## 🔗References
 
 JONES, D. Threader: protein sequence threading by double dynamic programming. *Computational Methods in Molecular Biology.* Elsevier, 1996. v. 32, cap. 13, p. 312–338
