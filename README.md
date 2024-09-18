@@ -360,6 +360,11 @@ WARNING - The distribution of shuffled energy scores for sequence 5AWL.fasta is 
     </tr>
   </table>
 </div>
+<p align="center">
+  <i>
+    Table 4: Summary of z-scores for alignments between different structures in example 1.
+  </i>
+</p>
 
 > ⚠️ **Warning:** The z-scores may not be interpretable as the shuffled energy scores are not normally distributed. This is merely an example. To perform a meaningful significance evaluation, increase the number of shuffles.
 
@@ -400,9 +405,16 @@ python src/test_gaps.py [--program_path PROGRAM_PATH] [--output_dir OUTPUT_DIR] 
 #### Input 
 > `src/config.py` :
 > ```python
-> # Directory paths
-> TEMPLATES_DIR = 'data/example1/structures/'
-> SEQUENCES_DIR = 'data/example1/sequences/'
+> # Gap scores to test
+> gap_scores = [0, 0.1, 0.2, 0.3, 0.5, 1, 2, 5]
+>
+> # Proteins with similar structures
+> homolog_pairs = {
+>     '5AWL.fasta': ['1l2y.pdb', '1vii.pdb', '1crn.pdb'],
+>     '1VII.fasta': ['1l2y.pdb', '1crn.pdb'],
+>     '1L2Y.fasta': ['1vii.pdb', '1crn.pdb'],
+>     '1CRN.fasta': ['1l2y.pdb','1vii.pdb', '1crn.pdb', '1le0.pdb', '1le1.pdb']
+> }
 > ```
 
 ```python
@@ -410,6 +422,71 @@ python src/test_gaps.py --output_dir results/gaps_test --result_file results/per
 ```
 
 #### Result
+
+<div style="text-align:center;">
+  <table align="center">
+    <tr>
+      <th><p align="center"><br>Gap Score</br></p></th>
+      <th><p align="center"><br>Performance</br></p></th>
+      <th><p align="center"><br>Correctly Guessed</br></p></th>
+      <th><p align="center"><br>Similar Structure</br></p></th>
+    </tr>
+    <tr>
+      <td><p align="center">0.0</p></td>
+      <td><p align="center">0.5</p></td>
+      <td><p align="center">1</p></td>
+      <td><p align="center">4</p></td>
+    </tr>
+    <tr>
+      <td><p align="center">0.1</p></td>
+      <td><p align="center">0.58</p></td>
+      <td><p align="center">2</p></td>
+      <td><p align="center">3</p></td>
+    </tr>
+    <tr>
+      <td><p align="center">0.2</p></td>
+      <td><p align="center">0.92</p></td>
+      <td><p align="center">4</p></td>
+      <td><p align="center">3</p></td>
+    </tr>
+    <tr>
+      <td><p align="center">0.3</p></td>
+      <td><p align="center">0.92</p></td>
+      <td><p align="center">4</p></td>
+      <td><p align="center">3</p></td>
+    </tr>
+    <tr>
+      <td><p align="center">0.5</p></td>
+      <td><p align="center">0.83</p></td>
+      <td><p align="center">4</p></td>
+      <td><p align="center">2</p></td>
+    </tr>
+    <tr>
+      <td><p align="center">1.0</p></td>
+      <td><p align="center">0.75</p></td>
+      <td><p align="center">4</p></td>
+      <td><p align="center">1</p></td>
+    </tr>
+    <tr>
+      <td><p align="center">2.0</p></td>
+      <td><p align="center">0.75</p></td>
+      <td><p align="center">4</p></td>
+      <td><p align="center">1</p></td>
+    </tr>
+    <tr>
+      <td><p align="center">5.0</p></td>
+      <td><p align="center">0.75</p></td>
+      <td><p align="center">4</p></td>
+      <td><p align="center">1</p></td>
+    </tr>
+  </table>
+</div>
+<p align="center">
+  <i>
+    Table 5: Summary of algorithm performance based on gap penalty.
+  </i>
+</p>
+
 
 ## 🔗References
 
